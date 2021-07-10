@@ -10,8 +10,18 @@ config_version=4
 
 [application]
 
-config/name="LostTech"
+config/name="The lost Walkman"
+run/main_scene="res://Menu/Menu.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=160
+window/size/height=80
+window/size/test_width=1020
+window/size/test_height=510
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
 
 [physics]
 
@@ -19,5 +29,4 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
-quality/driver/driver_name="GLES3"
 environment/default_environment="res://default_env.tres"
