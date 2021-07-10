@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/mp_cs_background.png-4467b144257673c62ba2ee75a7f95329.stex"
+path="res://.import/mp_cs_buildings.png-2330893907b5311f531003bc25fa39d1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Background/mp_cs_background.png"
-dest_files=[ "res://.import/mp_cs_background.png-4467b144257673c62ba2ee75a7f95329.stex" ]
+source_file="res://Design/Foreground/mp_cs_buildings.png"
+dest_files=[ "res://.import/mp_cs_buildings.png-2330893907b5311f531003bc25fa39d1.stex" ]
 
 [params]
 
