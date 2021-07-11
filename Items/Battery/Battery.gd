@@ -9,4 +9,5 @@ func _process(delta):
 
 
 func _on_Battery_body_entered(body):
+	get_parent().get_node("Player").load_battery()
 	queue_free()

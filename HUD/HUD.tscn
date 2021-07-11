@@ -10,7 +10,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Bars" type="VBoxContainer" parent="."]
+[node name="Stats" type="VBoxContainer" parent="."]
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 40.0
@@ -19,35 +19,35 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Energy Bar" type="HBoxContainer" parent="Bars"]
+[node name="Energy" type="HBoxContainer" parent="Stats"]
 margin_right = 136.0
 margin_bottom = 16.0
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Bars/Energy Bar"]
+[node name="TextureRect" type="TextureRect" parent="Stats/Energy"]
 margin_right = 32.0
 margin_bottom = 16.0
 texture = ExtResource( 2 )
 
-[node name="ProgressBar" type="ProgressBar" parent="Bars/Energy Bar"]
+[node name="ProgressBar" type="ProgressBar" parent="Stats/Energy"]
 margin_left = 36.0
 margin_right = 136.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 100, 16 )
 value = 5.0
 
-[node name="Life Bar" type="HBoxContainer" parent="Bars"]
+[node name="Life" type="HBoxContainer" parent="Stats"]
 margin_top = 20.0
 margin_right = 136.0
 margin_bottom = 36.0
 
-[node name="TextureRect" type="TextureRect" parent="Bars/Life Bar"]
+[node name="TextureRect" type="TextureRect" parent="Stats/Life"]
 margin_right = 32.0
 margin_bottom = 16.0
 rect_min_size = Vector2( 32, 16 )
 texture = ExtResource( 1 )
 
-[node name="ProgressBar" type="ProgressBar" parent="Bars/Life Bar"]
+[node name="ProgressBar" type="ProgressBar" parent="Stats/Life"]
 margin_left = 36.0
 margin_right = 136.0
 margin_bottom = 16.0

@@ -5,6 +5,13 @@ var SPEED = 25
 var GRAVITY = 2
 var JUMP_HEIGHT = 75
 var looks_right = true
+var battery_level = 20
+var life = 100
+
+func _ready():
+	# initialize HUD
+	get_node("../HUD/Stats/Energy/ProgressBar").value = battery_level
+	get_node("../HUD/Stats/Life/ProgressBar").value = life	
 
 func _process(delta):
 	$AnimatedSprite.play(move_player())
@@ -40,3 +47,10 @@ func flip_if_needed(should_look_right):
 	else:
 		looks_right = should_look_right
 		scale.x *= -1
+
+func load_battery(level=10):
+	# ensure that battery can't get over 100
+	battery_level = min(battery_level + level, 100) 
+	
+	# update HUD
+	get_node("../HUD/Stats/Energy/ProgressBar").value = battery_level
