@@ -44,6 +44,7 @@ texture = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_speed = 3.0
 anims/idle = SubResource( 2 )
 
 [connection signal="body_entered" from="." to="." method="_on_Battery_body_entered"]
