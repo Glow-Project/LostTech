@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Font/Magero.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Design/Background/mp_cs_background.png" type="Texture" id=2]
 [ext_resource path="res://Menu/Menu.gd" type="Script" id=3]
 [ext_resource path="res://Menu/pulse_2_intro_loop.wav" type="AudioStream" id=4]
+[ext_resource path="res://Design/Foreground/pour_entertainment.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )
@@ -185,9 +186,6 @@ autoplay = true
 [node name="Background" type="Node2D" parent="."]
 position = Vector2( 90, 0 )
 z_index = -1
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Sky" type="TileMap" parent="Background"]
 tile_set = SubResource( 3 )
@@ -207,5 +205,10 @@ tile_data = PoolIntArray( -65507, 6, 0, 65531, 2, 0, 13, 6, 0, 131066, 4, 0, 131
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Background"]
 anims/Move_City = SubResource( 4 )
+
+[node name="Promo" type="Sprite" parent="Background"]
+position = Vector2( 418.579, 86.7938 )
+scale = Vector2( 0.43757, 0.386986 )
+texture = ExtResource( 5 )
 
 [connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
