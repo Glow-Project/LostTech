@@ -1,8 +1,9 @@
 extends KinematicBody2D
 
 var vel = Vector2.ZERO
-var SPEED = 20
-var GRAVITY = 1
+var SPEED = 25
+var GRAVITY = 2
+var JUMP_HEIGHT = 75
 var looks_right = true
 
 func _process(delta):
@@ -22,6 +23,12 @@ func move_player():
 		flip_if_needed(false)
 		vel.x = -SPEED
 		action = "walk"
+		
+	if (Input.is_action_just_pressed("ui_up") && vel.y == GRAVITY):
+		vel.y += -JUMP_HEIGHT
+	
+	if (Input.is_action_pressed("ui_shift")):
+		vel.x *= 2
 	
 	vel = move_and_slide(vel)
 	
