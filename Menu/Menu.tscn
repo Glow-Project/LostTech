@@ -11,6 +11,9 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "idle"
+length = 0.469
+loop = true
+step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("Start:modulate")
 tracks/0/interp = 1
@@ -18,10 +21,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.1, 0.5, 0.9 ),
+"times": PoolRealArray( 0, 0.23, 0.44 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.596078, 0.596078, 0.596078, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="DynamicFont" id=3]
@@ -183,7 +186,7 @@ __meta__ = {
 anims/idle = SubResource( 2 )
 
 [node name="Start" type="MenuButton" parent="."]
-modulate = Color( 0.777288, 0.777288, 0.777288, 1 )
+modulate = Color( 0, 0, 0, 1 )
 margin_left = -37.0023
 margin_top = 107.487
 margin_right = 73.9977
@@ -202,7 +205,6 @@ volume_db = -7.573
 autoplay = true
 
 [node name="Background" type="Node2D" parent="."]
-position = Vector2( 90, 0 )
 z_index = -1
 
 [node name="Sky" type="TileMap" parent="Background"]
