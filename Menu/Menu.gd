@@ -13,4 +13,5 @@ func _process(_delta):
 		$AnimationPlayer.play("idle")
 
 func _on_Start_pressed():
-	get_tree().change_scene("res://Levels/Level1/Level1.tscn")
+	get_tree().change_scene("res://Levels/%s/%s.tscn" % [LevelSwitch.current_level, LevelSwitch.current_level])
+	

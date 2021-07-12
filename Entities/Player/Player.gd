@@ -1,17 +1,20 @@
 extends KinematicBody2D
 
+export var life = 100
+export var battery_level = 100
 var vel = Vector2.ZERO
 var SPEED = 25
 var GRAVITY = 2
 var JUMP_HEIGHT = 75
 var looks_right = true
-var battery_level = 20
-var life = 100
 
 func _ready():
-	# initialize HUD
-	get_node("../HUD/Stats/Energy/ProgressBar").value = battery_level
-	get_node("../HUD/Stats/Life/ProgressBar").value = life	
+	var simple_bat = battery_level
+	if (simple_bat != 0):
+		simple_bat = battery_level * 4 / 100
+		simple_bat = round(simple_bat)
+	
+	get_node("../Camera/HUD").change_battery(str(simple_bat))
 
 func _process(delta):
 	$AnimatedSprite.play(move_player())
@@ -48,9 +51,17 @@ func flip_if_needed(should_look_right):
 		looks_right = should_look_right
 		scale.x *= -1
 
-func load_battery(level=10):
+func load_battery(level=25):
 	# ensure that battery can't get over 100
 	battery_level = min(battery_level + level, 100) 
 	
+	var simple_bat
+	
+	if (battery_level != 0):
+		simple_bat = battery_level * 4 / 100
+		simple_bat = round(simple_bat)
+	else:
+		simple_bat = battery_level
+		
 	# update HUD
-	get_node("../HUD/Stats/Energy/ProgressBar").value = battery_level
+	get_node("../Camera/HUD").change_battery(str(simple_bat))

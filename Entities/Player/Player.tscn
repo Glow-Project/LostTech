@@ -52,7 +52,7 @@ animations = [ {
 extents = Vector2( 4.0362, 7.53572 )
 
 [node name="Player" type="KinematicBody2D"]
-position = Vector2( -0.0589924, 0 )
+scale = Vector2( 2, 2 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true

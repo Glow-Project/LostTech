@@ -4,7 +4,7 @@
 [ext_resource path="res://Items/Battery/Battery.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 15.9929, 8 )
+extents = Vector2( 7.20488, 3.36405 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "idle"
@@ -34,7 +34,6 @@ tracks/1/keys = {
 }
 
 [node name="Battery" type="Area2D"]
-scale = Vector2( 0.7, 0.5 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

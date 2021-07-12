@@ -186,7 +186,6 @@ __meta__ = {
 anims/idle = SubResource( 2 )
 
 [node name="Start" type="MenuButton" parent="."]
-modulate = Color( 0, 0, 0, 1 )
 margin_left = -37.0023
 margin_top = 107.487
 margin_right = 73.9977
