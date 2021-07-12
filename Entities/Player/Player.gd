@@ -5,7 +5,7 @@ export var battery_level = 100
 var vel = Vector2.ZERO
 var SPEED = 25
 var GRAVITY = 2
-var JUMP_HEIGHT = 75
+var JUMP_HEIGHT = 90
 var looks_right = true
 
 func _ready():
