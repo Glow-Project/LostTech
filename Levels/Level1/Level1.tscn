@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Design/Tilesets/Sky.tres" type="TileSet" id=1]
 [ext_resource path="res://Design/Foreground/mp_cs_buildings.png" type="Texture" id=2]
@@ -14,7 +14,6 @@
 [ext_resource path="res://Design/Tilesets/Foreground.tres" type="TileSet" id=12]
 [ext_resource path="res://Items/HeartContainer/HeartContainer.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Design/Filter/PartyFilter/PartyFilter.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Design/Filter/RaggeaFilter/RaggeaFilter.tscn" type="PackedScene" id=15]
 
 [sub_resource type="ConvexPolygonShape2D" id=42]
 points = PoolVector2Array( 16, 0, 16, 16, 0, 16, 0, 16 )
@@ -2478,6 +2477,3 @@ position = Vector2( 1792, 22 )
 
 [node name="Camera" parent="." instance=ExtResource( 4 )]
 position = Vector2( 160.149, 79.8796 )
-
-[node name="Node2D" parent="Camera" instance=ExtResource( 15 )]
-scale = Vector2( 7, 7 )
