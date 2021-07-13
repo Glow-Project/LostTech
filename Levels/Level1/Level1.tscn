@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Design/Tilesets/Sky.tres" type="TileSet" id=1]
 [ext_resource path="res://Design/Foreground/mp_cs_buildings.png" type="Texture" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Design/Tilesets/Foreground.tres" type="TileSet" id=12]
 [ext_resource path="res://Items/HeartContainer/HeartContainer.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Design/Filter/PartyFilter/PartyFilter.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Design/Filter/RaggeaFilter/RaggeaFilter.tscn" type="PackedScene" id=15]
 
 [sub_resource type="ConvexPolygonShape2D" id=42]
 points = PoolVector2Array( 16, 0, 16, 16, 0, 16, 0, 16 )
@@ -2438,9 +2439,6 @@ cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 262208, 3, 0, 262213, 5, 0, 262216, 3, 0, 393211, 3, 0, 327698, 3, 0, 327748, 536870919, 0, 327755, 1, 0, 327783, 536870915, 0, 393256, 0, 0, 393299, 14, 0, 393334, 536870912, 0, 458783, 4, 0, 458877, 4, 0, 458883, 536870916, 0 )
 
-[node name="Camera" parent="." instance=ExtResource( 4 )]
-position = Vector2( 160.149, 79.8796 )
-
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 130.111, 112.279 )
 battery_level = 25
@@ -2477,3 +2475,9 @@ scale = Vector2( 3, 3 )
 
 [node name="HeartContainer" parent="." instance=ExtResource( 13 )]
 position = Vector2( 1792, 22 )
+
+[node name="Camera" parent="." instance=ExtResource( 4 )]
+position = Vector2( 160.149, 79.8796 )
+
+[node name="Node2D" parent="Camera" instance=ExtResource( 15 )]
+scale = Vector2( 7, 7 )
