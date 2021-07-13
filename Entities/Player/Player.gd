@@ -78,6 +78,7 @@ func load_battery(level=25):
 	
 	var simple_bat
 	
+	# Calculate the energy bars
 	if (battery_level != 0):
 		simple_bat = battery_level * 4 / 100
 		simple_bat = round(simple_bat)
@@ -91,6 +92,9 @@ func regenerate_hp(amount=1):
 	# Append the life if it i'snt max
 	if (life != 5):
 		life += amount
+		if (life > 5): life = 5
+		
+		# Update the HUD
 		get_node("../Camera/HUD").change_life(str(life))
 
 func get_hit(damage=1):

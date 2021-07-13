@@ -14,6 +14,7 @@ func _physics_process(delta):
 		return
 	check_death()
 	
+	# Cooldown
 	if (hit):
 		counter += delta
 		if (counter >= cooldown):
@@ -22,6 +23,7 @@ func _physics_process(delta):
 		else:
 			$AnimatedSprite.play("attack")
 			return
+
 	$AnimatedSprite.play(move())
 
 func move():
@@ -29,14 +31,18 @@ func move():
 	var player = get_node_or_null("../Player")
 	vel.x = 0
 	vel.y += Global.GRAVITY
+	
+	# play idle if there is no Player
 	if (!is_instance_valid(player)):
 		return action
 	
+	# Calculate the distance between entity and Player
 	var distance = player.position - position
 	distance.y = round(distance.y)
 	distance.x = round(distance.x)
 	distance.y += 12
 
+	# play idle if the player is too far away
 	if (distance.x > 250 || distance.x < -250):
 		return action
 
