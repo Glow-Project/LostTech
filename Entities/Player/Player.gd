@@ -27,39 +27,49 @@ func _physics_process(_delta):
 	
 	if (position.y > 240):
 		lose()
-
-	$AnimatedSprite.play(move())
+	
+	if (!$AnimationPlayer.is_playing()):
+		$AnimatedSprite.play(move())
+	else:
+		move()
 
 func move():
 	vel.x = 0
 	vel.y += Global.GRAVITY
 	var action = "idle"
 	
-	if (Input.is_action_pressed("ui_right")):
+	if (Input.is_action_pressed("ui_right") && 
+		!$AnimationPlayer.is_playing()):
 		vel.x = SPEED
 		action = "walk"
 		flip_if_needed(true)
 		
-	if (Input.is_action_pressed("ui_left")):
+	if (Input.is_action_pressed("ui_left") &&
+		!$AnimationPlayer.is_playing()):
 		flip_if_needed(false)
 		vel.x = -SPEED
 		action = "walk"
 		
 	if (Input.is_action_pressed("ui_shift") && (
 		Input.is_action_pressed("ui_right") || 
-		Input.is_action_pressed("ui_left"))):
+		Input.is_action_pressed("ui_left")) &&
+		!$AnimationPlayer.is_playing()):
 		vel.x *= 2
 		action = "run"
 	
-	if (Input.is_action_just_pressed("ui_up") && vel.y == Global.GRAVITY):
+	if (Input.is_action_just_pressed("ui_up") && vel.y == Global.GRAVITY &&
+		!$AnimationPlayer.is_playing()):
 		vel.y += -JUMP_HEIGHT
+	
+	if (Input.is_action_just_pressed("ui_attack")):
+		$AnimationPlayer.play("attack")
 	
 	vel = move_and_slide(vel)
 
-	if (vel.y > 0 || (vel.y == 0 && just_jumped)):
+	if (vel.y > 0 || (vel.y == 0 && just_jumped) && !$AnimationPlayer.is_playing()):
 		action = "fall"
 		just_jumped = false
-	elif (vel.y < 0):
+	elif (vel.y < 0 && !$AnimationPlayer.is_playing()):
 		action = "jump"
 		just_jumped = true
 
@@ -134,3 +144,8 @@ func lose():
 	
 	# Delete self
 	queue_free()
+
+
+func _on_Area2D_body_entered(body):
+	if (body.name != "Foreground" && body.name != "Player"):
+		body.get_hit()

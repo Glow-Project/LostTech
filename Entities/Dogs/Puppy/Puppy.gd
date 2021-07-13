@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 export var SPEED = 50
 export var JUMP_HEIGHT = 1
+export var friendly = false
 var vel = Vector2.ZERO
 var cooldown = 1.5
 var counter = 0
@@ -77,7 +78,7 @@ func move():
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
 
-		if (collision.collider.name == "Player"):
+		if (collision.collider.name == "Player" && !friendly):
 			if ((distance.y == 0 || distance.y > 0) && !hit):
 				attack()
 				action = "attack"
@@ -86,6 +87,9 @@ func move():
 				die()
 				
 	return action
+
+func get_hit():
+	die()
 
 func attack():
 	get_node("../Player").get_hit()
