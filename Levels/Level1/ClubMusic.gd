@@ -20,7 +20,7 @@ func _process(delta):
 		pos = get_parent().get_node("Player").position
 	
 	# The distance can be calculated via L2-Norm aka euclidean distance aka
-	# pythagoras theorem.	
+	# pythagoras theorem.
 	var distance = sqrt(
 		pow(pos.x - $ClubPosition.position.x,2) + 
 		pow(pos.y - $ClubPosition.position.y,2)
