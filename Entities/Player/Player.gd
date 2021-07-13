@@ -59,7 +59,7 @@ func move():
 		action = "jump"
 	
 	vel = move_and_slide(vel)
-	
+
 	return action
 	
 func flip_if_needed(should_look_right):
@@ -100,6 +100,9 @@ func toggle_pause():
 	else:
 		get_node("../Camera/Pause").queue_free()
 		Global.is_paused = false
+
+func bump():
+	vel.y = -JUMP_HEIGHT
 
 func lose():
 	get_node("../Camera/HUD").queue_free()

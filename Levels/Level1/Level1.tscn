@@ -3071,4 +3071,16 @@ script = ExtResource( 9 )
 position = Vector2( 14.8493, 100.617 )
 
 [node name="Puppy" parent="." instance=ExtResource( 10 )]
-position = Vector2( 351.244, 117.484 )
+position = Vector2( 594.394, 119.166 )
+
+[node name="Puppy2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 853.14, 71.5437 )
+
+[node name="Puppy3" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1242.02, 104.579 )
+
+[node name="Puppy4" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1837.6, 120.625 )
+
+[node name="Puppy5" parent="." instance=ExtResource( 10 )]
+position = Vector2( 2165.13, 119.681 )

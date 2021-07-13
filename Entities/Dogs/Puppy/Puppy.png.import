@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/16x16Sample.png-8a87527e55687d1cb4572237bce8edb1.stex"
+path="res://.import/Puppy.png-d111cb6fd35b8199fda626210e0b8083.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Entities/Dogs/Puppy/16x16Sample.png"
-dest_files=[ "res://.import/16x16Sample.png-8a87527e55687d1cb4572237bce8edb1.stex" ]
+source_file="res://Entities/Dogs/Puppy/Puppy.png"
+dest_files=[ "res://.import/Puppy.png-d111cb6fd35b8199fda626210e0b8083.stex" ]
 
 [params]
 
