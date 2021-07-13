@@ -15,3 +15,7 @@ func _process(_delta):
 func _on_Start_pressed():
 	get_tree().change_scene("res://Levels/%s/%s.tscn" % [LevelSwitch.current_level, LevelSwitch.current_level])
 	
+
+
+func _on_Exit_pressed():
+	get_tree().quit()
