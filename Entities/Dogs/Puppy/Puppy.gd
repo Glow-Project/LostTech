@@ -19,6 +19,9 @@ func _physics_process(delta):
 		if (counter >= cooldown):
 			hit = false
 			counter = 0
+		else:
+			$AnimatedSprite.play("attack")
+			return
 	$AnimatedSprite.play(move())
 
 func move():
@@ -66,7 +69,7 @@ func move():
 	
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
-		print(collision.collider.name)
+
 		if (collision.collider.name == "Player" && !hit):
 			if (distance.y == 0 || distance.y > 0):
 				attack()

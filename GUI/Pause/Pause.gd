@@ -1,5 +1,8 @@
 extends Control
 
+func _process(_delta):
+	if (!$AnimationPlayer.is_playing()):
+		$AnimationPlayer.play("ColorFade")
 
 func _on_Menu_pressed():
 	get_tree().change_scene("res://Menu/Menu.tscn")

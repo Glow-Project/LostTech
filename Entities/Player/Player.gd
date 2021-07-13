@@ -4,8 +4,9 @@ export var life = 5
 export var battery_level = 100
 var vel = Vector2.ZERO
 var SPEED = 35
-var JUMP_HEIGHT = 115
+var JUMP_HEIGHT = 120
 var looks_right = true
+var just_jumped = false
 
 func _ready():
 	var simple_bat = battery_level
@@ -17,7 +18,7 @@ func _ready():
 	get_node("../Camera/HUD").change_battery(str(simple_bat))
 
 func _process(_delta):
-	if (Input.is_action_just_pressed("ui_pause")):
+	if (Input.is_action_just_pressed("ui_pause") && !Global.level_finished):
 		toggle_pause()
 
 func _physics_process(_delta):
@@ -53,12 +54,14 @@ func move():
 	if (Input.is_action_just_pressed("ui_up") && vel.y == Global.GRAVITY):
 		vel.y += -JUMP_HEIGHT
 	
-	if (vel.y > Global.GRAVITY):
-		action = "fall"
-	elif (vel.y < Global.GRAVITY):
-		action = "jump"
-	
 	vel = move_and_slide(vel)
+
+	if (vel.y > 0 || (vel.y == 0 && just_jumped)):
+		action = "fall"
+		just_jumped = false
+	elif (vel.y < 0):
+		action = "jump"
+		just_jumped = true
 
 	return action
 	
@@ -84,6 +87,12 @@ func load_battery(level=25):
 	# update HUD
 	get_node("../Camera/HUD").change_battery(str(simple_bat))
 
+func regenerate_hp(amount=1):
+	# Append the life if it i'snt max
+	if (life != 5):
+		life += amount
+		get_node("../Camera/HUD").change_life(str(life))
+
 func get_hit(damage=1):
 	$AnimatedSprite.play("hurt")
 	$Damage.play()
@@ -102,12 +111,22 @@ func toggle_pause():
 		get_node("../Camera/Pause").queue_free()
 		Global.is_paused = false
 
-func bump():
-	vel.y = -JUMP_HEIGHT
+func bump(amount=JUMP_HEIGHT):
+	
+	# Append velocity
+	vel.y = -amount
 
 func lose():
+	
+	# Remove the HUD
 	get_node("../Camera/HUD").queue_free()
+	
+	# Load the 'lose' scene
 	var lose_scene = load("res://GUI/Lose/Lose.tscn")
 	var lose = lose_scene.instance()
+	
+	# Make the 'lose' scene a child of the Camera
 	get_node("../Camera").add_child(lose)
+	
+	# Delete self
 	queue_free()
