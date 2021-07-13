@@ -175,7 +175,7 @@ alignment = 1
 [node name="Energy" type="AnimatedSprite" parent="Stats/Energy"]
 position = Vector2( 14.3657, 6.45901 )
 frames = SubResource( 13 )
-animation = "0"
+animation = "4"
 
 [node name="Placeholder" type="Label" parent="Stats/Energy"]
 margin_left = 17.0

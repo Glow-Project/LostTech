@@ -21,6 +21,7 @@ func _physics_process(delta):
 			hit = false
 			counter = 0
 		else:
+			move()
 			$AnimatedSprite.play("attack")
 			return
 
@@ -47,7 +48,7 @@ func move():
 		return action
 
 	# Check if the player isn't jumping
-	if (!dead && !((distance.x > -70 && distance.x < 70) && distance.y < 0)):
+	if (!dead && !((distance.x > -70 && distance.x < 70) && distance.y < 0) && !hit):
 		if (distance.x < 0):
 			vel.x -= SPEED
 			flip_if_needed(false)
@@ -60,7 +61,7 @@ func move():
 	# Check if the player is about to jump on the entity
 	elif (!dead && 
 		(distance.x < 60 && distance.x > -60) && 
-		(distance.y < -5 && distance.y > -50)): 
+		(distance.y < -5 && distance.y > -50) && !hit): 
 			if (distance.x < 0):
 				vel.x += SPEED
 				flip_if_needed(true)
@@ -76,8 +77,8 @@ func move():
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
 
-		if (collision.collider.name == "Player" && !hit):
-			if (distance.y == 0 || distance.y > 0):
+		if (collision.collider.name == "Player"):
+			if ((distance.y == 0 || distance.y > 0) && !hit):
 				attack()
 				action = "attack"
 			else:

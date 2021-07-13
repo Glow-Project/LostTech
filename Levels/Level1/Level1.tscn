@@ -2440,7 +2440,6 @@ tile_data = PoolIntArray( 262208, 3, 0, 262213, 5, 0, 262216, 3, 0, 393211, 3, 0
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 130.111, 112.279 )
-battery_level = 25
 
 [node name="Battery" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1232, 32 )
@@ -2454,7 +2453,7 @@ script = ExtResource( 9 )
 position = Vector2( 14.8493, 100.617 )
 
 [node name="Puppy" parent="." instance=ExtResource( 10 )]
-position = Vector2( 594.394, 119.166 )
+position = Vector2( 594.394, 120.334 )
 
 [node name="Puppy2" parent="." instance=ExtResource( 10 )]
 position = Vector2( 853.14, 71.5437 )
