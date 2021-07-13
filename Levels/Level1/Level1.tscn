@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://Design/Background/mp_cs_background.png" type="Texture" id=1]
 [ext_resource path="res://Design/Foreground/mp_cs_buildings.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Design/Foreground/mp_cs_doors_windows.png" type="Texture" id=7]
 [ext_resource path="res://Levels/JumpnRun_KickedOutClubEdit.mp3" type="AudioStream" id=8]
 [ext_resource path="res://Levels/Level1/ClubMusic.gd" type="Script" id=9]
+[ext_resource path="res://Entities/Dogs/Puppy/Puppy.tscn" type="PackedScene" id=10]
 
 [sub_resource type="TileSet" id=1]
 0/name = "mp_cs_buildings.png 0"
@@ -3068,3 +3069,6 @@ script = ExtResource( 9 )
 
 [node name="ClubPosition" type="Position2D" parent="ClubMusic"]
 position = Vector2( 14.8493, 100.617 )
+
+[node name="Puppy" parent="." instance=ExtResource( 10 )]
+position = Vector2( 351.244, 117.484 )

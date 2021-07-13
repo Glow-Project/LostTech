@@ -1,10 +1,9 @@
 extends KinematicBody2D
 
-export var life = 100
+export var life = 5
 export var battery_level = 100
 var vel = Vector2.ZERO
 var SPEED = 35
-var GRAVITY = 3
 var JUMP_HEIGHT = 115
 var looks_right = true
 
@@ -14,17 +13,25 @@ func _ready():
 		simple_bat = battery_level * 4 / 100
 		simple_bat = round(simple_bat)
 	
+	get_node("../Camera/HUD").change_life(str(life))
 	get_node("../Camera/HUD").change_battery(str(simple_bat))
 
-func _process(delta):
+func _process(_delta):
+	if (Input.is_action_just_pressed("ui_pause")):
+		toggle_pause()
+
+func _physics_process(_delta):
+	if (Global.is_paused):
+		return
+	
 	if (position.y > 240):
 		lose()
-	
-	$AnimatedSprite.play(move_player())
 
-func move_player():
+	$AnimatedSprite.play(move())
+
+func move():
 	vel.x = 0
-	vel.y += GRAVITY
+	vel.y += Global.GRAVITY
 	var action = "idle"
 	
 	if (Input.is_action_pressed("ui_right")):
@@ -43,12 +50,12 @@ func move_player():
 		vel.x *= 2
 		action = "run"
 	
-	if (Input.is_action_just_pressed("ui_up") && vel.y == GRAVITY):
+	if (Input.is_action_just_pressed("ui_up") && vel.y == Global.GRAVITY):
 		vel.y += -JUMP_HEIGHT
 	
-	if (vel.y > GRAVITY):
+	if (vel.y > Global.GRAVITY):
 		action = "fall"
-	elif (vel.y < GRAVITY):
+	elif (vel.y < Global.GRAVITY):
 		action = "jump"
 	
 	vel = move_and_slide(vel)
@@ -76,6 +83,23 @@ func load_battery(level=25):
 		
 	# update HUD
 	get_node("../Camera/HUD").change_battery(str(simple_bat))
+
+func get_hit(damage=1):
+	$AnimatedSprite.play("hurt")
+	life -= damage
+	if (life <= 0):
+		lose()
+	get_node("../Camera/HUD").change_life(str(life))
+
+func toggle_pause():
+	if (!Global.is_paused):
+		var cam = get_node("../Camera")
+		var pause_scene = load("res://GUI/Pause/Pause.tscn")
+		cam.add_child(pause_scene.instance())
+		Global.is_paused = true
+	else:
+		get_node("../Camera/Pause").queue_free()
+		Global.is_paused = false
 
 func lose():
 	get_node("../Camera/HUD").queue_free()
