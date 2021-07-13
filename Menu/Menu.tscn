@@ -186,13 +186,27 @@ __meta__ = {
 anims/idle = SubResource( 2 )
 
 [node name="Start" type="MenuButton" parent="."]
-margin_left = -37.0023
-margin_top = 107.487
-margin_right = 73.9977
-margin_bottom = 156.487
+margin_left = -2.9572
+margin_top = 105.964
+margin_right = 59.0428
+margin_bottom = 122.964
 rect_scale = Vector2( 1.5, 1.5 )
 custom_fonts/font = SubResource( 3 )
 text = "Start"
+switch_on_hover = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exit" type="MenuButton" parent="."]
+margin_left = -3.35273
+margin_top = 132.915
+margin_right = 48.6473
+margin_bottom = 149.915
+rect_scale = Vector2( 1.5, 1.5 )
+focus_mode = 2
+custom_fonts/font = SubResource( 3 )
+text = "Exit"
 switch_on_hover = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -231,3 +245,5 @@ scale = Vector2( 0.43757, 0.386986 )
 texture = ExtResource( 5 )
 
 [connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_Start_pressed"]

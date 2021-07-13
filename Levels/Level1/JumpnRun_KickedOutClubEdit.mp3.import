@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/JumpnRun_KickedOutClubEdit.mp3-883697e405020f610e9cf5d12ba83701.mp3str"
+
+[deps]
+
+source_file="res://Levels/Level1/JumpnRun_KickedOutClubEdit.mp3"
+dest_files=[ "res://.import/JumpnRun_KickedOutClubEdit.mp3-883697e405020f610e9cf5d12ba83701.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

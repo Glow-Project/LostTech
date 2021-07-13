@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/energy.png-40e7a833f2968ad577eb13aca3ff93ba.stex"
+path="res://.import/PartyFilter.png-0660743ac4b771f143a9d4f8ee5ace71.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Items/Battery/energy.png"
-dest_files=[ "res://.import/energy.png-40e7a833f2968ad577eb13aca3ff93ba.stex" ]
+source_file="res://Design/Filter/PartyFilter/PartyFilter.png"
+dest_files=[ "res://.import/PartyFilter.png-0660743ac4b771f143a9d4f8ee5ace71.stex" ]
 
 [params]
 

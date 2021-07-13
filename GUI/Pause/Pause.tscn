@@ -1,0 +1,84 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Font/Magero.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://GUI/Pause/Pause.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "ColorFade"
+length = 60.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:custom_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( -1.9, 0, 10, 20, 30, 40, 50, 60 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0.180392, 0.996078, 1 ), Color( 0.996078, 0, 0, 1 ), Color( 0.992157, 1, 0, 1 ), Color( 0.34902, 1, 0.0196078, 1 ), Color( 0, 1, 0.788235, 1 ), Color( 0, 0.298039, 1, 1 ), Color( 0.686275, 0, 1, 1 ), Color( 1, 0, 0, 1 ) ]
+}
+
+[node name="Pause" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -159.603
+margin_top = -85.0
+margin_right = -159.603
+margin_bottom = -85.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+margin_left = 122.0
+margin_top = 26.0
+margin_right = -148.0
+margin_bottom = 37.0
+rect_scale = Vector2( 1.602, 2.038 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.995032, 0.266865, 0, 1 )
+text = "Pause"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="Button" parent="."]
+margin_left = 66.4995
+margin_top = 89.3727
+margin_right = 137.5
+margin_bottom = 117.373
+focus_mode = 0
+custom_fonts/font = SubResource( 2 )
+enabled_focus_mode = 0
+text = "Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Restart" type="Button" parent="."]
+margin_left = 193.007
+margin_top = 89.6356
+margin_right = 264.007
+margin_bottom = 117.636
+focus_mode = 0
+custom_fonts/font = SubResource( 2 )
+enabled_focus_mode = 0
+text = "Restart"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/ColorFade = SubResource( 3 )
+
+[connection signal="pressed" from="Menu" to="." method="_on_Menu_pressed"]
+[connection signal="pressed" from="Restart" to="." method="_on_Retry_pressed"]
