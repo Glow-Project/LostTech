@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Plopp.mp3-4eb237d00dc977dd2b77950e4b429d55.mp3str"
+
+[deps]
+
+source_file="res://Entities/Dogs/Puppy/Plopp.mp3"
+dest_files=[ "res://.import/Plopp.mp3-4eb237d00dc977dd2b77950e4b429d55.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

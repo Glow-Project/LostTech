@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Entities/Dogs/Puppy/Puppy.gd" type="Script" id=1]
 [ext_resource path="res://Entities/Dogs/Puppy/Puppy.png" type="Texture" id=2]
+[ext_resource path="res://Entities/Dogs/Puppy/Plopp.mp3" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 4.67466, 3.26187 )
@@ -63,3 +64,6 @@ shape = SubResource( 1 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 3 )
 animation = "idle"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )

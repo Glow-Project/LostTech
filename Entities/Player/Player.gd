@@ -86,6 +86,7 @@ func load_battery(level=25):
 
 func get_hit(damage=1):
 	$AnimatedSprite.play("hurt")
+	$Damage.play()
 	life -= damage
 	if (life <= 0):
 		lose()

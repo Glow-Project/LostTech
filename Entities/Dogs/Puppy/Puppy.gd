@@ -38,7 +38,7 @@ func move():
 		return action
 
 	# Check if the player isn't jumping
-	if (!dead && !((distance.x > -60 && distance.x < 60) && distance.y < 0)):
+	if (!dead && !((distance.x > -70 && distance.x < 70) && distance.y < 0)):
 		if (distance.x < 0):
 			vel.x -= SPEED
 			flip_if_needed(false)
@@ -94,4 +94,5 @@ func check_death():
 
 func die():
 	$CollisionShape2D.queue_free()
+	$AudioStreamPlayer2D.play()
 	dead = true

@@ -1,7 +1,8 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Entities/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Entities/Player/Tex.png" type="Texture" id=2]
+[ext_resource path="res://Entities/Player/Hit.mp3" type="AudioStream" id=3]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
@@ -180,3 +181,6 @@ speed_scale = 1.5
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 0.44545 )
 shape = SubResource( 30 )
+
+[node name="Damage" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
