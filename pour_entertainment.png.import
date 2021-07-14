@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pour_entertainment.png-0484ad38f3f73db5fc6de4b9d482c992.stex"
+path="res://.import/pour_entertainment.png-6c472adcb90ca6b529a6817676d79d6d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Design/Foreground/pour_entertainment.png"
-dest_files=[ "res://.import/pour_entertainment.png-0484ad38f3f73db5fc6de4b9d482c992.stex" ]
+source_file="res://pour_entertainment.png"
+dest_files=[ "res://.import/pour_entertainment.png-6c472adcb90ca6b529a6817676d79d6d.stex" ]
 
 [params]
 

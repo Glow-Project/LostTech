@@ -1,8 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Entities/Dogs/Puppy/Puppy.gd" type="Script" id=1]
 [ext_resource path="res://Entities/Dogs/Puppy/Puppy.png" type="Texture" id=2]
 [ext_resource path="res://Entities/Dogs/Puppy/Plopp.mp3" type="AudioStream" id=3]
+[ext_resource path="res://Entities/Dogs/Puppy/bark03.wav" type="AudioStream" id=4]
+[ext_resource path="res://Entities/Dogs/Puppy/bark02.wav" type="AudioStream" id=5]
+[ext_resource path="res://Entities/Dogs/Puppy/bark01.wav" type="AudioStream" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 4.67466, 3.26187 )
@@ -70,3 +73,18 @@ stream = ExtResource( 3 )
 
 [node name="AttackDelayTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="Bark1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+
+[node name="Bark2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+
+[node name="Bark3" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 0, -0.5 )
+stream = ExtResource( 4 )
+
+[node name="BarkIntervalTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="BarkIntervalTimer" to="." method="_on_BarkIntervalTimer_timeout"]

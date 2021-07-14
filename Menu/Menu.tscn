@@ -4,7 +4,7 @@
 [ext_resource path="res://Design/Background/mp_cs_background.png" type="Texture" id=2]
 [ext_resource path="res://Menu/Menu.gd" type="Script" id=3]
 [ext_resource path="res://Menu/pulse_2_intro_loop.wav" type="AudioStream" id=4]
-[ext_resource path="res://Design/Foreground/pour_entertainment.png" type="Texture" id=5]
+[ext_resource path="res://pour_entertainment.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )

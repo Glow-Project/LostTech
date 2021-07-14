@@ -8,6 +8,7 @@ export var attack_delay: float = 2
 var vel = Vector2.ZERO
 var dead = false
 var looks_right = true
+var random = RandomNumberGenerator.new()
 
 func _physics_process(delta):
 	if (Global.is_paused):
@@ -81,7 +82,10 @@ func move():
 			elif (distance.y < 0):
 				get_node("../Player").bump()
 				die()
-				
+	
+	if ($BarkIntervalTimer.is_stopped() && !dead):
+		$BarkIntervalTimer.start(random.randi_range(1, 5))
+	
 	return action
 
 func get_hit():
@@ -105,3 +109,7 @@ func die():
 	$CollisionShape2D.queue_free()
 	$AudioStreamPlayer2D.play()
 	dead = true
+
+
+func _on_BarkIntervalTimer_timeout():
+	get_node("Bark%d" % random.randi_range(1,3)).play()
