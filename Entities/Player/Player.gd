@@ -81,7 +81,7 @@ func move():
 	on_floor = false
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
-		if (collision.collider.name == "Foreground"):
+		if (collision.collider is TileMap):
 			on_floor = true
 
 	if (vel.y > 0 || (vel.y == 0 && just_jumped) && !$AnimationPlayer.is_playing() && !on_floor):
@@ -161,7 +161,9 @@ func toggle_pause():
 		cam.add_child(pause_scene.instance())
 		Global.is_paused = true
 	else:
-		get_node("../Camera/Pause").queue_free()
+		var pause = get_node_or_null("../Camera/Pause")
+		if (is_instance_valid(pause)):
+			pause.queue_free()
 		Global.is_paused = false
 
 func bump(amount=JUMP_HEIGHT):

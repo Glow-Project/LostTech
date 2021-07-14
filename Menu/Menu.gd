@@ -3,6 +3,7 @@ extends Control
 func _ready():
 	$AudioStreamPlayer.play()
 	$Background/AnimationPlayer.play("Move_City")
+	Global.is_paused = false
 
 func _process(_delta):
 	if (!$AudioStreamPlayer.playing):
@@ -16,7 +17,6 @@ func _process(_delta):
 
 func _on_Start_pressed():
 	get_tree().change_scene("res://Levels/%s/%s.tscn" % [LevelSwitch.current_level, LevelSwitch.current_level])
-	
 
 
 func _on_Exit_pressed():

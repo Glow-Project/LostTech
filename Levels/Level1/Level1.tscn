@@ -467,6 +467,7 @@ position = Vector2( 1792, 22 )
 
 [node name="Camera" parent="." instance=ExtResource( 4 )]
 position = Vector2( 160.149, 79.8796 )
+current = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 "anims/Introduce Puppy" = SubResource( 1 )
@@ -474,6 +475,7 @@ position = Vector2( 160.149, 79.8796 )
 
 [node name="Camera2D" type="Camera2D" parent="AnimationPlayer"]
 position = Vector2( 475.866, 80 )
+current = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
 stream = ExtResource( 21 )
@@ -504,11 +506,11 @@ __meta__ = {
 
 [node name="description" type="Label" parent="AnimationPlayer/Control"]
 visible = false
-margin_left = -18.8306
-margin_top = 15.165
-margin_right = 204.296
-margin_bottom = 33.165
-rect_rotation = -9.3
+margin_left = 39.8213
+margin_top = 4.55481
+margin_right = 262.948
+margin_bottom = 22.5548
+rect_rotation = -9.4
 rect_scale = Vector2( 0.1, 0.1 )
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -521,10 +523,10 @@ __meta__ = {
 
 [node name="Titel" type="Label" parent="AnimationPlayer/Control"]
 visible = false
-margin_left = 24.0039
-margin_top = -3.15051
-margin_right = 116.321
-margin_bottom = 14.8495
+margin_left = 7.05176
+margin_top = 5.2395
+margin_right = 99.3689
+margin_bottom = 23.2395
 rect_rotation = -9.3
 rect_scale = Vector2( 0.15, 0.15 )
 custom_fonts/font = SubResource( 3 )
