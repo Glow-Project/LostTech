@@ -1,12 +1,11 @@
 extends KinematicBody2D
 
-export var SPEED = 50
-export var JUMP_HEIGHT = 1
-export var friendly = false
+export var SPEED: float = 50
+export var JUMP_HEIGHT: float = 1
+export var friendly: bool = false
+export var attack_delay: float = 2
+
 var vel = Vector2.ZERO
-var cooldown = 1.5
-var counter = 0
-var hit = false
 var dead = false
 var looks_right = true
 
@@ -14,17 +13,6 @@ func _physics_process(delta):
 	if (Global.is_paused):
 		return
 	check_death()
-	
-	# Cooldown
-	if (hit):
-		counter += delta
-		if (counter >= cooldown):
-			hit = false
-			counter = 0
-		else:
-			move()
-			$AnimatedSprite.play("attack")
-			return
 
 	$AnimatedSprite.play(move())
 
@@ -49,7 +37,7 @@ func move():
 		return action
 
 	# Check if the player isn't jumping
-	if (!dead && !((distance.x > -70 && distance.x < 70) && distance.y < 0) && !hit):
+	if (!dead && !((distance.x > -70 && distance.x < 70) && distance.y < 0) && $AttackDelayTimer.is_stopped()):
 		if (distance.x < 0):
 			vel.x -= SPEED
 			flip_if_needed(false)
@@ -62,7 +50,8 @@ func move():
 	# Check if the player is about to jump on the entity
 	elif (!dead && 
 		(distance.x < 60 && distance.x > -60) && 
-		(distance.y < -5 && distance.y > -50) && !hit): 
+		(distance.y < -5 && distance.y > -50) && 
+		$AttackDelayTimer.is_stopped()): 
 			if (distance.x < 0):
 				vel.x += SPEED
 				flip_if_needed(true)
@@ -79,10 +68,11 @@ func move():
 		var collision = get_slide_collision(i)
 
 		if (collision.collider.name == "Player" && !friendly):
-			if ((distance.y == 0 || distance.y > 0) && !hit):
+			if ((distance.y == 0 || distance.y > 0) && $AttackDelayTimer.is_stopped()):
+				$AttackDelayTimer.start(attack_delay)
 				attack()
 				action = "attack"
-			else:
+			elif (distance.y < 0):
 				get_node("../Player").bump()
 				die()
 				
@@ -93,7 +83,6 @@ func get_hit():
 
 func attack():
 	get_node("../Player").get_hit()
-	hit = true
 
 func flip_if_needed(should_look_right):
 	if (looks_right == should_look_right): 

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Classic_placeholder.mp3-2742a8b4c6267bf7c7b3a5425f20b6c7.mp3str"
+
+[deps]
+
+source_file="res://Items/Walkman/Classic_placeholder.mp3"
+dest_files=[ "res://.import/Classic_placeholder.mp3-2742a8b4c6267bf7c7b3a5425f20b6c7.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

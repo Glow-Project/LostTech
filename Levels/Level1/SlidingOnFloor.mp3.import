@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/SlidingOnFloor.mp3-7bf310fd12dadef52b206cfeb2d9d391.mp3str"
+
+[deps]
+
+source_file="res://Levels/Level1/SlidingOnFloor.mp3"
+dest_files=[ "res://.import/SlidingOnFloor.mp3-7bf310fd12dadef52b206cfeb2d9d391.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

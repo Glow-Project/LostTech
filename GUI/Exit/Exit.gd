@@ -15,13 +15,13 @@ func _process(_delta):
 		queue_free()
 
 func _on_Exit_body_entered(body):
-	player_inside = true
 	if (body.name == "Player"):
+		player_inside = true
 		$AnimatedSprite.visible = true
 		$AnimatedSprite.play("idle")
 
 func _on_Exit_body_exited(body):
-	player_inside = false
 	if (body.name == "Player"):
+		player_inside = false
 		$AnimatedSprite.visible = false
 		$AnimatedSprite.stop()

@@ -2,11 +2,14 @@ extends KinematicBody2D
 
 export var life = 5
 export var battery_level = 100
+export var attack_delay: float = 0.5
+
 var vel = Vector2.ZERO
 var SPEED = 35
 var JUMP_HEIGHT = 120
 var looks_right = true
 var just_jumped = false
+var on_floor: bool = true
 
 func _ready():
 	var simple_bat = battery_level
@@ -23,6 +26,10 @@ func _process(_delta):
 
 func _physics_process(_delta):
 	if (Global.is_paused):
+		if (!$AttackDelayTimer.is_stopped()):
+			$AnimatedSprite.play("attack")
+		else:
+			$AnimatedSprite.play("idle")
 		return
 	
 	if (position.y > 240):
@@ -34,7 +41,7 @@ func _physics_process(_delta):
 		move()
 
 func move():
-	vel.x = 0
+	if vel.x != 0: vel.x /= 2
 	vel.y += Global.GRAVITY
 	var action = "idle"
 	
@@ -57,24 +64,36 @@ func move():
 		vel.x *= 2
 		action = "run"
 	
-	if (Input.is_action_just_pressed("ui_up") && vel.y == Global.GRAVITY &&
-		!$AnimationPlayer.is_playing()):
-		vel.y += -JUMP_HEIGHT
 	
-	if (Input.is_action_just_pressed("ui_attack")):
-		$AnimationPlayer.play("attack")
+	
+	if (Input.is_action_just_pressed("ui_attack") && $AttackDelayTimer.is_stopped()):
+		attack()
 	
 	vel = move_and_slide(vel)
 
-	if (vel.y > 0 || (vel.y == 0 && just_jumped) && !$AnimationPlayer.is_playing()):
+	on_floor = false
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		if (collision.collider.name == "Foreground"):
+			on_floor = true
+
+	if (vel.y > 0 || (vel.y == 0 && just_jumped) && !$AnimationPlayer.is_playing() && !on_floor):
 		action = "fall"
 		just_jumped = false
-	elif (vel.y < 0 && !$AnimationPlayer.is_playing()):
+	elif (vel.y < 0 && !$AnimationPlayer.is_playing() && !on_floor):
 		action = "jump"
 		just_jumped = true
 
+	if (Input.is_action_just_pressed("ui_up") && on_floor &&
+		!$AnimationPlayer.is_playing()):
+		vel.y += -JUMP_HEIGHT
+
 	return action
-	
+
+func attack():
+	$AttackDelayTimer.start(attack_delay)
+	$AnimationPlayer.play("attack")
+
 func flip_if_needed(should_look_right):
 	if (looks_right == should_look_right): 
 		return

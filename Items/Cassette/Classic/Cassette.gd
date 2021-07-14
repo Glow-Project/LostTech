@@ -9,4 +9,6 @@ func _process(delta):
 		$AnimationPlayer.play("idle")
 
 func _on_Cassette_body_entered(body):
-	queue_free()
+	if (body.name == "Player"):
+		queue_free()
+
