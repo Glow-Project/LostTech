@@ -189,5 +189,5 @@ func cut():
 		play_or_stop($Walkman.current_song.name, true)
 
 func _on_Area2D_body_entered(body):
-	if (body.name != "Foreground" && body.name != "TileMap" && body.name != "Player"):
+	if (!(body is TileMap) && body.name != "Player"):
 		body.get_hit()

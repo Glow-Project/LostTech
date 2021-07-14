@@ -5,7 +5,7 @@ var life
 
 func change_battery(animation):
 	if (int(animation) < 0 || animation == "-0"): animation = "0"
-	print(animation)
+
 	$Stats/Energy/Energy.play(animation)
 	energy = animation
 
