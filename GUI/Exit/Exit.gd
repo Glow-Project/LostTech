@@ -7,6 +7,7 @@ func _ready():
 
 func _process(_delta):
 	if (Input.is_action_just_pressed("ui_accept") && player_inside):
+		get_node("../Player").cut()
 		Global.is_paused = true
 		Global.level_finished = true
 		var finished_scene = load("res://GUI/Finish/Finish.tscn")

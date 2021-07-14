@@ -3,6 +3,7 @@ extends KinematicBody2D
 export var life = 5
 export var battery_level = 100
 export var attack_delay: float = 0.5
+export var collected_cassets = []
 
 var vel = Vector2.ZERO
 var SPEED = 35
@@ -23,6 +24,11 @@ func _ready():
 func _process(_delta):
 	if (Input.is_action_just_pressed("ui_pause") && !Global.level_finished):
 		toggle_pause()
+		
+	if (battery_level == -0): battery_level = 0
+		
+	if (battery_level <= 0 && !$Walkman.paused):
+		play_or_stop($Walkman.current_song.name, true)
 
 func _physics_process(_delta):
 	if (Global.is_paused):
@@ -64,7 +70,8 @@ func move():
 		vel.x *= 2
 		action = "run"
 	
-	
+	if (Input.is_action_just_pressed("1")):
+		play_or_stop("Classic")
 	
 	if (Input.is_action_just_pressed("ui_attack") && $AttackDelayTimer.is_stopped()):
 		attack()
@@ -93,6 +100,19 @@ func move():
 func attack():
 	$AttackDelayTimer.start(attack_delay)
 	$AnimationPlayer.play("attack")
+
+func play_or_stop(name, forced=false):
+	if ((!(name in collected_cassets) ||
+		battery_level <= 0) && !forced):
+		return
+	if ($Walkman.paused):
+		$Walkman.play_song(name)
+	else:
+		$Walkman.stop_song()
+		name = "none"
+	var hud = get_node_or_null("../Camera/HUD")
+	if(is_instance_valid(hud)):
+		hud.change_casette(name)
 
 func flip_if_needed(should_look_right):
 	if (looks_right == should_look_right): 
@@ -164,7 +184,10 @@ func lose():
 	# Delete self
 	queue_free()
 
+func cut():
+	if (!$Walkman.paused):
+		play_or_stop($Walkman.current_song.name, true)
 
 func _on_Area2D_body_entered(body):
-	if (body.name != "Foreground" && body.name != "Player"):
+	if (body.name != "Foreground" && body.name != "TileMap" && body.name != "Player"):
 		body.get_hit()

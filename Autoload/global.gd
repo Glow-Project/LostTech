@@ -4,3 +4,4 @@ extends Node
 var GRAVITY = 3
 var is_paused = false
 var level_finished = false
+var friendly = false

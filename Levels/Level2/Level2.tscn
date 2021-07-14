@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Design/Tilesets/Sky.tres" type="TileSet" id=1]
 [ext_resource path="res://Design/Tilesets/Foreground.tres" type="TileSet" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Levels/Level2/F.png" type="Texture" id=11]
 [ext_resource path="res://Levels/Level2/TAPE STOP_02.wav" type="AudioStream" id=12]
 [ext_resource path="res://Levels/Level2/TAPE START_02.wav" type="AudioStream" id=13]
+[ext_resource path="res://GUI/Exit/Exit.tscn" type="PackedScene" id=14]
 
 [sub_resource type="TileSet" id=1]
 0/name = "mp_cs_buildings.png 0"
@@ -222,7 +223,7 @@ tracks/0/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=5]
 resource_name = "Zoom out"
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimationPlayer/AnimatedSprite:visible")
@@ -299,17 +300,17 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 )
 }
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 11 )
 region = Rect2( 0, 0, 8, 8 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 11 )
 region = Rect2( 8, 0, 8, 8 )
 
-[sub_resource type="SpriteFrames" id=7]
+[sub_resource type="SpriteFrames" id=8]
 animations = [ {
-"frames": [ SubResource( 5 ), SubResource( 6 ) ],
+"frames": [ SubResource( 6 ), SubResource( 7 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
@@ -380,7 +381,7 @@ position = Vector2( 87.3173, 109.586 )
 position = Vector2( 160.725, 79.37 )
 
 [node name="Puppy" parent="." instance=ExtResource( 10 )]
-position = Vector2( 722.714, 111.452 )
+position = Vector2( 691.99, 111.452 )
 scale = Vector2( 4, 4 )
 SPEED = 0.0
 
@@ -393,7 +394,7 @@ shape = SubResource( 2 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 "anims/Fighting Intro" = SubResource( 3 )
 "anims/Fighting advise" = SubResource( 4 )
-"anims/Zoom out" = SubResource( 8 )
+"anims/Zoom out" = SubResource( 5 )
 
 [node name="Camera2D" type="Camera2D" parent="AnimationPlayer"]
 position = Vector2( 493.462, 125.012 )
@@ -403,13 +404,15 @@ zoom = Vector2( 0.3625, 0.3625 )
 visible = false
 position = Vector2( 489.983, 133.618 )
 scale = Vector2( 0.822885, 0.882161 )
-frames = SubResource( 7 )
+frames = SubResource( 8 )
 animation = "idle"
-frame = 1
 playing = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
 stream = ExtResource( 13 )
+
+[node name="Exit" parent="." instance=ExtResource( 14 )]
+position = Vector2( 2243.53, 101.409 )
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

@@ -10,5 +10,6 @@ func _process(delta):
 
 func _on_Cassette_body_entered(body):
 	if (body.name == "Player"):
+		get_node("../Player").collected_cassets.append("Classic")
 		queue_free()
 

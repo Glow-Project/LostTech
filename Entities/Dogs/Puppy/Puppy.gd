@@ -14,6 +14,7 @@ func _physics_process(delta):
 		return
 	check_death()
 
+	friendly = Global.friendly
 	$AnimatedSprite.play(move())
 
 func move():
@@ -37,7 +38,9 @@ func move():
 		return action
 
 	# Check if the player isn't jumping
-	if (!dead && !((distance.x > -70 && distance.x < 70) && distance.y < 0) && $AttackDelayTimer.is_stopped()):
+	if (!dead && !((distance.x > -70 && distance.x < 70) && 
+		distance.y < 0) && $AttackDelayTimer.is_stopped() &&
+		!friendly):
 		if (distance.x < 0):
 			vel.x -= SPEED
 			flip_if_needed(false)
@@ -51,7 +54,8 @@ func move():
 	elif (!dead && 
 		(distance.x < 60 && distance.x > -60) && 
 		(distance.y < -5 && distance.y > -50) && 
-		$AttackDelayTimer.is_stopped()): 
+		$AttackDelayTimer.is_stopped() &&
+		!friendly): 
 			if (distance.x < 0):
 				vel.x += SPEED
 				flip_if_needed(true)
@@ -68,7 +72,9 @@ func move():
 		var collision = get_slide_collision(i)
 
 		if (collision.collider.name == "Player" && !friendly):
-			if ((distance.y == 0 || distance.y > 0) && $AttackDelayTimer.is_stopped()):
+			if ((distance.y == 0 || distance.y > 0) && 
+				$AttackDelayTimer.is_stopped() &&
+				!friendly):
 				$AttackDelayTimer.start(attack_delay)
 				attack()
 				action = "attack"

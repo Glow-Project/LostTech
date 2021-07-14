@@ -4,6 +4,8 @@ var energy
 var life
 
 func change_battery(animation):
+	if (int(animation) < 0 || animation == "-0"): animation = "0"
+	print(animation)
 	$Stats/Energy/Energy.play(animation)
 	energy = animation
 
@@ -20,3 +22,5 @@ func change_life(animation):
 	else:
 		$Stats/Life/AnimationPlayer.stop()
 	
+func change_casette(animation):
+	$Casette/Casette.play(animation)
