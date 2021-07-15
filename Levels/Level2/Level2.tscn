@@ -524,7 +524,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, -22.5 ) ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=17]
 resource_name = "elevator_stop"
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimationPlayer/Camera2D:offset")
@@ -536,7 +536,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, -264.5 ), Vector2( 0, -350 ) ]
+"values": [ Vector2( 0, -264.5 ), Vector2( 0, -287 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("../Camera:current")
@@ -545,10 +545,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 1 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ false, true ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("AnimationPlayer/Camera2D:zoom")
@@ -586,9 +586,20 @@ tracks/4/keys = {
 "update": 0,
 "values": [ Vector2( 1304.36, -289 ) ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("AnimationPlayer/Camera2D:current")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
-[sub_resource type="Animation" id=17]
-resource_name = "elevator_up"
+[sub_resource type="Animation" id=18]
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimationPlayer/Camera2D:offset")
 tracks/0/interp = 1
@@ -686,10 +697,10 @@ format = 1
 tile_data = PoolIntArray( 327686, 5, 0, 327731, 5, 0, 327737, 3, 0, 393258, 6, 0, 458774, 6, 0, 458806, 10, 0, 589794, 4, 0, 589799, 536870916, 0, 589855, 8, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1304.36, -289 )
+position = Vector2( 76.9799, 111.419 )
 
 [node name="Camera" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1304.36, -301.421 )
+position = Vector2( 108.789, 77.5693 )
 
 [node name="Trampoline" parent="." instance=ExtResource( 19 )]
 position = Vector2( 176.949, 121.115 )
@@ -745,8 +756,8 @@ shape = SubResource( 15 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SecretLevel"]
 anims/elevator_intro = SubResource( 16 )
-anims/elevator_stop = SubResource( 18 )
-anims/elevator_up = SubResource( 17 )
+anims/elevator_stop = SubResource( 17 )
+anims/elevator_up = SubResource( 18 )
 
 [node name="Camera2D" type="Camera2D" parent="SecretLevel/AnimationPlayer"]
 position = Vector2( 1304.35, 48.1529 )

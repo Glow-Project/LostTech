@@ -15,7 +15,6 @@ func _on_Area2D_body_entered(body):
 		Global.is_paused = true
 		$AnimationPlayer.play("Fighting Intro")
 
-
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if (anim_name == "Fighting Intro"):
 		$AnimationPlayer.play("Fighting advise")
