@@ -11,6 +11,7 @@ var JUMP_HEIGHT = 120
 var looks_right = true
 var just_jumped = false
 var on_floor: bool = true
+var player_paused = false
 
 func _ready():
 	var simple_bat = battery_level
@@ -158,16 +159,18 @@ func get_hit(damage=1):
 	get_node("../Camera/HUD").change_life(str(life))
 
 func toggle_pause():
-	if (!Global.is_paused):
+	if (!player_paused && !Global.is_paused):
 		var cam = get_node("../Camera")
 		var pause_scene = load("res://GUI/Pause/Pause.tscn")
 		cam.add_child(pause_scene.instance())
 		Global.is_paused = true
-	else:
+		player_paused = true
+	elif (player_paused):
 		var pause = get_node_or_null("../Camera/Pause")
 		if (is_instance_valid(pause)):
 			pause.queue_free()
 		Global.is_paused = false
+		player_paused = false
 
 func bump(amount=JUMP_HEIGHT):
 	

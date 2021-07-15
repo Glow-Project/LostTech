@@ -9,7 +9,7 @@ func _ready():
 	# since the loudness is depending on the distance
 	play()
 
-func _process(delta):
+func _process(_delta):
 	#
 	# Immersive positional audio feeling
 	#

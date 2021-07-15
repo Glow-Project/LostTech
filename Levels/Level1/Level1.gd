@@ -32,7 +32,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 
 func _on_ClassicCasetteIntroduction_body_entered(body):
-	if (body.name == "Player"):
+	if (body.name == "Player" && !casette_introduced):
 		Global.is_paused = true
 		$AnimationPlayer.play("Introduce Casette")
 		

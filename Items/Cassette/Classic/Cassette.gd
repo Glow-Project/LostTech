@@ -4,7 +4,7 @@ extends Area2D
 func _ready():
 	pass # Replace with function body.
 
-func _process(delta):
+func _process(_delta):
 	if !$AnimationPlayer.is_playing():
 		$AnimationPlayer.play("idle")
 

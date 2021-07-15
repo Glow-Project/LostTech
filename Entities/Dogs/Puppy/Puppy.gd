@@ -10,7 +10,7 @@ var dead = false
 var looks_right = true
 var random = RandomNumberGenerator.new()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if (Global.is_paused):
 		return
 	check_death()
@@ -86,6 +86,9 @@ func move():
 	if ($BarkIntervalTimer.is_stopped() && !dead):
 		$BarkIntervalTimer.start(random.randi_range(1, 5))
 	
+	if dead:
+		action = "hurt"
+	
 	return action
 
 func get_hit():
@@ -108,6 +111,7 @@ func check_death():
 func die():
 	$CollisionShape2D.queue_free()
 	$AudioStreamPlayer2D.play()
+	$AnimatedSprite.play("hurt")
 	dead = true
 
 
