@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Font/Magero.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Menu/Sub/MainMenu/MainMenu.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 1 )
+
+[node name="MainMenu" type="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exit" type="MenuButton" parent="."]
+margin_left = -3.35273
+margin_top = 132.915
+margin_right = 48.6473
+margin_bottom = 149.915
+rect_scale = Vector2( 1.5, 1.5 )
+focus_mode = 2
+custom_fonts/font = SubResource( 1 )
+text = "Exit"
+switch_on_hover = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Select Level" type="MenuButton" parent="."]
+margin_left = -3.36894
+margin_top = 107.049
+margin_right = 123.631
+margin_bottom = 124.049
+rect_scale = Vector2( 1.5, 1.5 )
+focus_mode = 2
+custom_fonts/font = SubResource( 1 )
+text = "Select level"
+switch_on_hover = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start" type="MenuButton" parent="."]
+margin_left = -3.12009
+margin_top = 81.6919
+margin_right = 58.8799
+margin_bottom = 98.6919
+rect_scale = Vector2( 1.5, 1.5 )
+focus_mode = 2
+custom_fonts/font = SubResource( 1 )
+text = "Start"
+switch_on_hover = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="."]
+margin_left = 12.2341
+margin_top = 12.7384
+margin_right = 162.235
+margin_bottom = 26.7383
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = SubResource( 2 )
+text = "The lost Walkman"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="Select Level" to="." method="_on_Select_Level_pressed"]
+[connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
