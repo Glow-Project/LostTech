@@ -2,12 +2,17 @@ extends Node2D
 
 export var paused = true
 var current_song = null
+var required_energy = {
+	"Classic": 12,
+	"Techno": 10,
+	"Raggea": 5
+}
 
 func _process(delta):
 	if (!paused && !current_song.playing):
 		current_song.play()
 	if (!paused):
-		get_parent().load_battery(-delta*5)
+		get_parent().load_battery(-delta*required_energy[current_song.name])
 
 func play_song(name):
 	current_song = get_node(name)

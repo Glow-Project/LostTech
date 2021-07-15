@@ -2,6 +2,7 @@ extends Node2D
 
 var done = false
 
+
 func _process(_delta):
 	if (Input.is_action_just_pressed("ui_attack") && $AnimationPlayer.current_animation == "Fighting advise"):
 		$Player.attack()

@@ -870,6 +870,7 @@ visible = false
 position = Vector2( 1218.86, 25.0213 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 10 )
+frame = 1
 playing = true
 
 [node name="Camera2D" type="Camera2D" parent="AnimationPlayer"]
