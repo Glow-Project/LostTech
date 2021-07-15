@@ -1,6 +1,6 @@
 extends Node
 
-export var MAX_LEVEL: int = 2
+export var MAX_LEVEL: int = 3
 export var current_level_number: int = 1
 var current_level: String = "Level%d" % current_level_number
 
