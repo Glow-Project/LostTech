@@ -1,33 +1,16 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Font/Magero.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Design/Background/mp_cs_background.png" type="Texture" id=2]
 [ext_resource path="res://Menu/Menu.gd" type="Script" id=3]
 [ext_resource path="res://Menu/pulse_2_intro_loop.wav" type="AudioStream" id=4]
 [ext_resource path="res://pour_entertainment.png" type="Texture" id=5]
-
-[sub_resource type="DynamicFont" id=1]
-font_data = ExtResource( 1 )
-
-[sub_resource type="Animation" id=2]
-resource_name = "idle"
-length = 0.469
-loop = true
-step = 0.01
-tracks/0/type = "value"
-tracks/0/path = NodePath("Start:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.23, 0.44 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0.596078, 0.596078, 0.596078, 1 ), Color( 1, 1, 1, 1 ) ]
-}
+[ext_resource path="res://Menu/Sub/LevelSelector/LevelSelector.tscn" type="PackedScene" id=6]
 
 [sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )
 
 [sub_resource type="TileSet" id=4]
@@ -160,6 +143,24 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( -350, 0 ), Vector2( 90, 0 ) ]
 }
 
+[sub_resource type="Animation" id=2]
+resource_name = "idle"
+length = 0.469
+loop = true
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Main Menu/Start:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.23, 0.44 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.596078, 0.596078, 0.596078, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
 [node name="Menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -170,35 +171,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Title" type="Label" parent="."]
-margin_left = 12.2341
-margin_top = 12.7384
-margin_right = 162.235
-margin_bottom = 26.7383
-rect_scale = Vector2( 2, 2 )
-custom_fonts/font = SubResource( 1 )
-text = "The lost Walkman"
+[node name="LevelSelector" parent="." instance=ExtResource( 6 )]
+visible = false
+
+[node name="MainMenu" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/idle = SubResource( 2 )
-
-[node name="Start" type="MenuButton" parent="."]
-margin_left = -2.9572
-margin_top = 105.964
-margin_right = 59.0428
-margin_bottom = 122.964
-rect_scale = Vector2( 1.5, 1.5 )
-custom_fonts/font = SubResource( 3 )
-text = "Start"
-switch_on_hover = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Exit" type="MenuButton" parent="."]
+[node name="Exit" type="MenuButton" parent="MainMenu"]
 margin_left = -3.35273
 margin_top = 132.915
 margin_right = 48.6473
@@ -212,10 +195,44 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
-volume_db = -7.573
-autoplay = true
+[node name="Select Level" type="MenuButton" parent="MainMenu"]
+margin_left = -3.36894
+margin_top = 107.049
+margin_right = 123.631
+margin_bottom = 124.049
+rect_scale = Vector2( 1.5, 1.5 )
+focus_mode = 2
+custom_fonts/font = SubResource( 3 )
+text = "Select level"
+switch_on_hover = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start" type="MenuButton" parent="MainMenu"]
+margin_left = -3.12009
+margin_top = 81.6919
+margin_right = 58.8799
+margin_bottom = 98.6919
+rect_scale = Vector2( 1.5, 1.5 )
+custom_fonts/font = SubResource( 3 )
+text = "Start"
+switch_on_hover = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="MainMenu"]
+margin_left = 12.2341
+margin_top = 12.7384
+margin_right = 162.235
+margin_bottom = 26.7383
+rect_scale = Vector2( 2, 2 )
+custom_fonts/font = SubResource( 1 )
+text = "The lost Walkman"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Background" type="Node2D" parent="."]
 z_index = -1
@@ -244,6 +261,15 @@ position = Vector2( 418.579, 86.7938 )
 scale = Vector2( 0.43757, 0.386986 )
 texture = ExtResource( 5 )
 
-[connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
-[connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]
-[connection signal="pressed" from="Exit" to="." method="_on_Start_pressed"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Background"]
+stream = ExtResource( 4 )
+volume_db = -7.573
+autoplay = true
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Background"]
+anims/idle = SubResource( 2 )
+
+[connection signal="pressed" from="MainMenu/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="MainMenu/Exit" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="MainMenu/Select Level" to="." method="_on_Select_Level_pressed"]
+[connection signal="pressed" from="MainMenu/Start" to="." method="_on_Start_pressed"]
