@@ -56,12 +56,14 @@ func move():
 		vel.x = SPEED
 		action = "walk"
 		flip_if_needed(true)
+		walk_sound()
 		
 	if (Input.is_action_pressed("ui_left") &&
 		!$AnimationPlayer.is_playing()):
 		flip_if_needed(false)
 		vel.x = -SPEED
 		action = "walk"
+		walk_sound()
 		
 	if (Input.is_action_pressed("ui_shift") && (
 		Input.is_action_pressed("ui_right") || 
@@ -94,6 +96,7 @@ func move():
 	if (Input.is_action_just_pressed("ui_up") && on_floor &&
 		!$AnimationPlayer.is_playing()):
 		vel.y += -JUMP_HEIGHT
+		$JumpSound.play()
 
 	return action
 
@@ -193,3 +196,7 @@ func cut():
 func _on_Area2D_body_entered(body):
 	if (!(body is TileMap) && body.name != "Player"):
 		body.get_hit()
+
+func walk_sound():
+	if (!$WalkSound.playing && on_floor):
+		$WalkSound.play()

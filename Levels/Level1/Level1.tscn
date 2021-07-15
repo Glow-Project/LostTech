@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Design/Tilesets/Sky.tres" type="TileSet" id=1]
 [ext_resource path="res://Design/Tilesets/Houses.tres" type="TileSet" id=2]
@@ -22,6 +22,323 @@
 [ext_resource path="res://Levels/Level1/TAPE STOP_19.wav" type="AudioStream" id=20]
 [ext_resource path="res://Levels/Level1/TAPE START_18.wav" type="AudioStream" id=21]
 [ext_resource path="res://Items/Battery/Battery.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Levels/Level1/PingBackground.png" type="Texture" id=23]
+[ext_resource path="res://Levels/Level1/TAPE START_17.wav" type="AudioStream" id=24]
+[ext_resource path="res://GUI/Exit/E.png" type="Texture" id=25]
+[ext_resource path="res://Levels/Level1/TAPE STOP_20.wav" type="AudioStream" id=26]
+[ext_resource path="res://Levels/Level1/tone.png" type="Texture" id=27]
+
+[sub_resource type="Animation" id=11]
+resource_name = "Exit Casette intro"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("Houses:z_index")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationPlayer/E:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimationPlayer/PinkBackround:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AnimationPlayer/Camera2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.4, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1233.49, 25 ), Vector2( 1233.49, 25 ), Vector2( 1200.58, 80 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("AnimationPlayer/Camera2D:zoom")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.4, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.15, 0.15 ), Vector2( 0.15, 0.15 ), Vector2( 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("AnimationPlayer/Camera2D:current")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.7 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Camera:current")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.7 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/7/type = "audio"
+tracks/7/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 26 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("AnimationPlayer/Casette/Title:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("AnimationPlayer/Casette/description:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("AnimationPlayer/Casette/description:rect_position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1227.97, 19.6112 ), Vector2( 1260.12, 20.0242 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("AnimationPlayer/Casette/Title:rect_position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1224.09, 15.5147 ), Vector2( 1182.28, 15.7509 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("AnimationPlayer/Particles2D:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Introduce Casette"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("Houses:z_index")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, -1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationPlayer/Camera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1200.58, 77.7525 ), Vector2( 1200.58, 77.7525 ), Vector2( 1233.49, 25.0313 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AnimationPlayer/Camera2D:zoom")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0.15, 0.15 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AnimationPlayer/PinkBackround:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("AnimationPlayer/Camera2D:current")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Camera:current")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/6/type = "audio"
+tracks/6/path = NodePath("AnimationPlayer/AudioStreamPlayer")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 24 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("AnimationPlayer/E:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0.7 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("AnimationPlayer/Casette/Title:rect_position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1264.29, 15.6261 ), Vector2( 1224.09, 15.5147 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("AnimationPlayer/Casette/description:rect_position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0.5, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1189.96, 18.7504 ), Vector2( 1227.97, 19.6112 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("AnimationPlayer/Casette/Title:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("AnimationPlayer/Casette/description:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
 
 [sub_resource type="Animation" id=1]
 resource_name = "Introduce Puppy"
@@ -379,11 +696,75 @@ tracks/11/keys = {
 "values": [ -80.0, -5.0, -5.0, -15.378 ]
 }
 
+[sub_resource type="Animation" id=6]
+resource_name = "Proceed Casette"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/E:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationPlayer/Particles2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="ParticlesMaterial" id=13]
+lifetime_randomness = 1.0
+emission_shape = 2
+emission_box_extents = Vector3( 13.69, 2.846, 1 )
+flag_disable_z = true
+gravity = Vector3( 0, -100, 0 )
+initial_velocity = 34.88
+initial_velocity_random = 0.26
+angular_velocity = 33.49
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.5
+scale_random = 0.38
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 25 )
+region = Rect2( 0, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 25 )
+region = Rect2( 8, 0, 8, 8 )
+
+[sub_resource type="SpriteFrames" id=10]
+animations = [ {
+"frames": [ SubResource( 8 ), SubResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
 [sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 19 )
+
+[sub_resource type="DynamicFont" id=12]
 font_data = ExtResource( 19 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 3.79675, 27.192 )
+
+[sub_resource type="RectangleShape2D" id=7]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource( 15 )
@@ -467,18 +848,35 @@ position = Vector2( 1792, 22 )
 
 [node name="Camera" parent="." instance=ExtResource( 4 )]
 position = Vector2( 160.149, 79.8796 )
-current = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/Exit Casette intro" = SubResource( 11 )
+"anims/Introduce Casette" = SubResource( 5 )
 "anims/Introduce Puppy" = SubResource( 1 )
 "anims/Outta Club" = SubResource( 2 )
+"anims/Proceed Casette" = SubResource( 6 )
+
+[node name="Particles2D" type="Particles2D" parent="AnimationPlayer"]
+visible = false
+position = Vector2( 1236.44, 24.563 )
+lifetime = 3.0
+speed_scale = 0.33
+randomness = 1.0
+process_material = SubResource( 13 )
+texture = ExtResource( 27 )
+
+[node name="E" type="AnimatedSprite" parent="AnimationPlayer"]
+visible = false
+position = Vector2( 1218.86, 25.0213 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 10 )
+playing = true
 
 [node name="Camera2D" type="Camera2D" parent="AnimationPlayer"]
-position = Vector2( 475.866, 80 )
-current = true
+position = Vector2( 1200.58, 80 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
-stream = ExtResource( 21 )
+stream = ExtResource( 24 )
 volume_db = -15.378
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="AnimationPlayer"]
@@ -537,21 +935,75 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="PinkBackround" type="Sprite" parent="AnimationPlayer"]
+visible = false
+position = Vector2( 1237.25, 25.9059 )
+scale = Vector2( 4.09184, 1.66441 )
+z_index = -1
+texture = ExtResource( 23 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Casette" type="Control" parent="AnimationPlayer"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="AnimationPlayer/Casette"]
+visible = false
+margin_left = 1182.28
+margin_top = 15.7509
+margin_right = 1362.28
+margin_bottom = 29.7509
+rect_scale = Vector2( 0.15, 0.15 )
+custom_fonts/font = SubResource( 12 )
+text = "The Classic Casette"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="description" type="Label" parent="AnimationPlayer/Casette"]
+visible = false
+margin_left = 1260.12
+margin_top = 20.0242
+margin_right = 1440.12
+margin_bottom = 34.0242
+rect_scale = Vector2( 0.1, 0.1 )
+custom_fonts/font = SubResource( 12 )
+text = "Keep it organized!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DogIntroduction" type="Area2D" parent="."]
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DogIntroduction"]
 position = Vector2( 475.312, 100.384 )
 shape = SubResource( 4 )
 
 [node name="Cassette" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1236.54, 29.4314 )
+position = Vector2( 1236.54, 29.3652 )
 
 [node name="Battery" parent="." instance=ExtResource( 22 )]
 position = Vector2( 1625.25, 118.156 )
 
+[node name="ClassicCasetteIntroduction" type="Area2D" parent="."]
+position = Vector2( 1200.09, 16.4322 )
+scale = Vector2( 0.332, 3.237 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClassicCasetteIntroduction"]
+shape = SubResource( 7 )
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="DogIntroduction" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="ClassicCasetteIntroduction" to="." method="_on_ClassicCasetteIntroduction_body_entered"]
