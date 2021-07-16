@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://Design/Tilesets/Sky.tres" type="TileSet" id=1]
 [ext_resource path="res://Design/Tilesets/Houses.tres" type="TileSet" id=2]
@@ -7,8 +7,7 @@
 [ext_resource path="res://Design/Tilesets/DoorsNWindows.tres" type="TileSet" id=5]
 [ext_resource path="res://Items/Cassette/Classic/Cassette.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Design/Tilesets/street.tres" type="TileSet" id=7]
-[ext_resource path="res://Levels/Level1/JumpnRun_KickedOutClubEdit.mp3" type="AudioStream" id=8]
-[ext_resource path="res://Levels/Level1/ClubMusic.gd" type="Script" id=9]
+[ext_resource path="res://Levels/Level1/ClubMusic.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Entities/Dogs/Puppy/Puppy.tscn" type="PackedScene" id=10]
 [ext_resource path="res://GUI/Exit/Exit.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Design/Tilesets/Foreground.tres" type="TileSet" id=12]
@@ -30,14 +29,13 @@
 [ext_resource path="res://Levels/Level1/BeginningMessage.gd" type="Script" id=28]
 [ext_resource path="res://Levels/Level1/CasetteMessage.gd" type="Script" id=29]
 
-[sub_resource type="DynamicFont" id=16]
+[sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 19 )
 
-[sub_resource type="DynamicFont" id=15]
+[sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 19 )
 
-[sub_resource type="Animation" id=1]
-resource_name = "Exit Casette intro"
+[sub_resource type="Animation" id=3]
 length = 0.7
 tracks/0/type = "value"
 tracks/0/path = NodePath("Houses:z_index")
@@ -198,8 +196,7 @@ tracks/12/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Introduce Casette"
+[sub_resource type="Animation" id=4]
 length = 0.7
 tracks/0/type = "value"
 tracks/0/path = NodePath("Houses:z_index")
@@ -348,7 +345,7 @@ tracks/11/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=5]
 length = 3.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimationPlayer/Camera2D:position")
@@ -549,7 +546,7 @@ tracks/15/keys = {
 "times": PoolRealArray( 0, 2 )
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=6]
 length = 6.6
 step = 0.01
 tracks/0/type = "value"
@@ -703,8 +700,7 @@ tracks/11/keys = {
 "values": [ -80.0, -5.0, -5.0, -15.378 ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "Proceed Casette"
+[sub_resource type="Animation" id=7]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimationPlayer/E:visible")
@@ -731,7 +727,7 @@ tracks/1/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="ParticlesMaterial" id=6]
+[sub_resource type="ParticlesMaterial" id=8]
 lifetime_randomness = 1.0
 emission_shape = 2
 emission_box_extents = Vector3( 13.69, 2.846, 1 )
@@ -746,34 +742,34 @@ orbit_velocity_random = 0.0
 scale = 0.5
 scale_random = 0.38
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 25 )
 region = Rect2( 0, 0, 8, 8 )
 
-[sub_resource type="AtlasTexture" id=8]
+[sub_resource type="AtlasTexture" id=10]
 atlas = ExtResource( 25 )
 region = Rect2( 8, 0, 8, 8 )
 
-[sub_resource type="SpriteFrames" id=9]
+[sub_resource type="SpriteFrames" id=11]
 animations = [ {
-"frames": [ SubResource( 7 ), SubResource( 8 ) ],
+"frames": [ SubResource( 9 ), SubResource( 10 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 } ]
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=12]
 font_data = ExtResource( 19 )
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=13]
 font_data = ExtResource( 19 )
-
-[sub_resource type="RectangleShape2D" id=12]
-extents = Vector2( 3.79675, 27.192 )
-
-[sub_resource type="RectangleShape2D" id=13]
 
 [sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 3.79675, 27.192 )
+
+[sub_resource type="RectangleShape2D" id=15]
+
+[sub_resource type="RectangleShape2D" id=16]
 extents = Vector2( 9.91272, 30.1077 )
 
 [sub_resource type="RectangleShape2D" id=17]
@@ -829,7 +825,7 @@ margin_left = 1443.34
 margin_top = 12.7081
 margin_right = 1583.34
 margin_bottom = 51.7081
-custom_fonts/font = SubResource( 16 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0.486275, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0.0705882, 0.803922, 1 )
 text = "Maybe there are
@@ -848,7 +844,7 @@ margin_left = 262.797
 margin_top = 35.579
 margin_right = 418.797
 margin_bottom = 74.579
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0.345098, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0.2, 0.980392, 1 )
 text = "I'm sure out here 
@@ -866,13 +862,7 @@ __meta__ = {
 visible = false
 position = Vector2( 130.111, 112.279 )
 
-[node name="ClubMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 8 )
-volume_db = -80.0
-script = ExtResource( 9 )
-
-[node name="ClubPosition" type="Position2D" parent="ClubMusic"]
-position = Vector2( 14.8493, 100.617 )
+[node name="ClubMusic" parent="." instance=ExtResource( 8 )]
 
 [node name="Puppy" parent="." instance=ExtResource( 10 )]
 position = Vector2( 592.028, 120 )
@@ -901,11 +891,11 @@ position = Vector2( 1792, 22 )
 position = Vector2( 160.149, 79.8796 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-"anims/Exit Casette intro" = SubResource( 1 )
-"anims/Introduce Casette" = SubResource( 2 )
-"anims/Introduce Puppy" = SubResource( 3 )
-"anims/Outta Club" = SubResource( 4 )
-"anims/Proceed Casette" = SubResource( 5 )
+"anims/Exit Casette intro" = SubResource( 3 )
+"anims/Introduce Casette" = SubResource( 4 )
+"anims/Introduce Puppy" = SubResource( 5 )
+"anims/Outta Club" = SubResource( 6 )
+"anims/Proceed Casette" = SubResource( 7 )
 
 [node name="Particles2D" type="Particles2D" parent="AnimationPlayer"]
 visible = false
@@ -913,15 +903,14 @@ position = Vector2( 1236.44, 24.563 )
 lifetime = 3.0
 speed_scale = 0.33
 randomness = 1.0
-process_material = SubResource( 6 )
+process_material = SubResource( 8 )
 texture = ExtResource( 27 )
 
 [node name="E" type="AnimatedSprite" parent="AnimationPlayer"]
 visible = false
 position = Vector2( 1218.86, 25.0213 )
 scale = Vector2( 0.5, 0.5 )
-frames = SubResource( 9 )
-frame = 1
+frames = SubResource( 11 )
 playing = true
 
 [node name="Camera2D" type="Camera2D" parent="AnimationPlayer"]
@@ -962,7 +951,7 @@ margin_right = 262.948
 margin_bottom = 22.5548
 rect_rotation = -9.4
 rect_scale = Vector2( 0.1, 0.1 )
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0.65098, 0.403922, 0.0509804, 1 )
@@ -979,7 +968,7 @@ margin_right = 99.3689
 margin_bottom = 23.2395
 rect_rotation = -9.3
 rect_scale = Vector2( 0.15, 0.15 )
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 12 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0.282353, 0.196078, 0.0156863, 1 )
 text = "The Puppy"
@@ -1011,7 +1000,7 @@ margin_top = 15.7509
 margin_right = 1362.28
 margin_bottom = 29.7509
 rect_scale = Vector2( 0.15, 0.15 )
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 13 )
 text = "The Classic Casette"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1024,7 +1013,7 @@ margin_top = 20.0242
 margin_right = 1440.12
 margin_bottom = 34.0242
 rect_scale = Vector2( 0.1, 0.1 )
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 13 )
 text = "Keep it organized!"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1038,7 +1027,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DogIntroduction"]
 position = Vector2( 475.312, 100.384 )
-shape = SubResource( 12 )
+shape = SubResource( 14 )
 
 [node name="Classic" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1236.54, 29.3652 )
@@ -1054,7 +1043,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ClassicCasetteIntroduction"]
-shape = SubResource( 13 )
+shape = SubResource( 15 )
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2( 227.179, 17.3725 )
@@ -1063,7 +1052,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 14 )
+shape = SubResource( 16 )
 
 [node name="CasetteMessageTrigger" type="Area2D" parent="."]
 position = Vector2( 1425.31, 40.9478 )

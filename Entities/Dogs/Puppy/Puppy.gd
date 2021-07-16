@@ -11,8 +11,8 @@ var looks_right = true
 var random = RandomNumberGenerator.new()
 
 func _physics_process(_delta):
-	if (Global.is_paused):
-		return
+	if (Global.is_paused): return
+	if (SPEED != 0): SPEED = Global.enemy_speed
 	check_death()
 
 	friendly = Global.friendly

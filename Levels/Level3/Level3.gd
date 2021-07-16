@@ -15,8 +15,6 @@ func _process(_delta):
 	if Input.is_action_just_pressed("ui_accept") && player_inside:
 		get_tree().change_scene("res://Levels/Level3/House/House.tscn")
 		
-	$Particles2D.visible = true
-		
 func _on_Area2D_body_entered(body):
 	if body.name == "Player":
 		player_inside = true

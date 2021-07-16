@@ -29,6 +29,11 @@ func proceed_effect(name, on):
 	if (on == true):
 		if (name == "Classic"):
 			Global.friendly = true
+		elif (name == "Raggea"):
+			Global.enemy_speed = 25
 	else:
 		if (name == "Classic"):
 			Global.friendly = false
+		elif (name == "Raggea"):
+			Global.enemy_speed = 50
+	
