@@ -18,6 +18,7 @@ config/icon="res://Logo.png"
 
 LevelSwitch="*res://Autoload/LevelSwitch.gd"
 Global="*res://Autoload/global.gd"
+SaveData="*res://Autoload/SaveData.gd"
 
 [display]
 
