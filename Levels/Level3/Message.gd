@@ -3,9 +3,8 @@ extends Label
 var activated = false
 
 func _process(delta):
-	print(visible_characters)
-	if activated:
-		visible_characters += 5*delta
+	if activated && text.length() != visible_characters:
+		visible_characters += 75*delta
 
 
 func _on_WriteMessage_body_entered(body):

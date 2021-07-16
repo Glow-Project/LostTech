@@ -720,7 +720,6 @@ tile_data = PoolIntArray( -1376121, 4, 0, -1310640, 12, 0, -1179515, 4, 0, -1048
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Houses"]
 position = Vector2( 1008.61, 67.8056 )
 frames = SubResource( 6 )
-frame = 1
 speed_scale = 0.1
 playing = true
 
@@ -786,7 +785,7 @@ playing = true
 stream = ExtResource( 13 )
 
 [node name="Exit" parent="." instance=ExtResource( 14 )]
-position = Vector2( 2254.38, 100.916 )
+position = Vector2( 2263.92, 101.446 )
 
 [node name="Battery" parent="." instance=ExtResource( 15 )]
 position = Vector2( 642.504, 117.023 )
@@ -823,4 +822,5 @@ position = Vector2( 1225.24, -289.978 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="SecretLevel" to="SecretLevel" method="_on_SecretLevel_body_entered"]
+[connection signal="body_exited" from="SecretLevel" to="SecretLevel" method="_on_SecretLevel_body_exited"]
 [connection signal="animation_finished" from="SecretLevel/AnimationPlayer" to="SecretLevel" method="_on_AnimationPlayer_animation_finished"]

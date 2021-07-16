@@ -6,6 +6,9 @@ var casette_introduced = false
 func _ready():
 	Global.is_paused = true
 	$AnimationPlayer.play("Outta Club")
+	if "Classic" in SaveData.collected_casettes:
+		$Classic.queue_free()
+		$ClassicCasetteIntroduction.queue_free()
 
 func _process(_delta):
 	if ($AnimationPlayer.is_playing() && 

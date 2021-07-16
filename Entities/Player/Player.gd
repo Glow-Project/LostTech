@@ -3,7 +3,6 @@ extends KinematicBody2D
 export var life = 5
 export var battery_level = 100
 export var attack_delay: float = 0.5
-export var collected_cassets = []
 
 var vel = Vector2.ZERO
 var SPEED = 35
@@ -106,7 +105,7 @@ func attack():
 	$AnimationPlayer.play("attack")
 
 func play_or_stop(name, forced=false):
-	if ((!(name in collected_cassets) ||
+	if ((!(name in SaveData.collected_casettes) ||
 		battery_level <= 0) && !forced):
 		return
 	if ($Walkman.paused):

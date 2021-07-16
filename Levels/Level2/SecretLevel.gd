@@ -33,3 +33,8 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	elif anim_name == "elevator_stop":
 		$AnimationPlayer.stop()
 		Global.is_paused = false
+
+
+func _on_SecretLevel_body_exited(body):
+	if body.name == "Player":
+		activated = false
