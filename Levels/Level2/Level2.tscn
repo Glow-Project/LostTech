@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Design/Tilesets/Sky.tres" type="TileSet" id=1]
 [ext_resource path="res://Design/Tilesets/Foreground.tres" type="TileSet" id=2]
@@ -18,7 +18,6 @@
 [ext_resource path="res://Levels/Level2/OPENSign.png" type="Texture" id=16]
 [ext_resource path="res://Design/Interiors/tilemap_all.png" type="Texture" id=17]
 [ext_resource path="res://Entities/Dogs/NinjaPuppy/NinjaPuppy.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Items/Trampoline/Trampoline.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Levels/Level2/SecretLevel.gd" type="Script" id=20]
 [ext_resource path="res://Items/HeartContainer/HeartContainer.tscn" type="PackedScene" id=21]
 
@@ -755,10 +754,6 @@ position = Vector2( 76.9799, 111.419 )
 [node name="Camera" parent="." instance=ExtResource( 3 )]
 position = Vector2( 108.789, 77.5693 )
 
-[node name="Trampoline" parent="." instance=ExtResource( 19 )]
-position = Vector2( 176.949, 121.115 )
-JUMP_HEIGHT = 250
-
 [node name="Puppy" parent="." instance=ExtResource( 10 )]
 position = Vector2( 691.99, 111.452 )
 scale = Vector2( 4, 4 )
@@ -785,7 +780,6 @@ position = Vector2( 489.983, 133.618 )
 scale = Vector2( 0.822885, 0.882161 )
 frames = SubResource( 14 )
 animation = "idle"
-frame = 1
 playing = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]

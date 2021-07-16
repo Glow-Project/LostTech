@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Entities/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Design/Foreground/mp_cs_doors_windows.png" type="Texture" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://Design/Background/mp_cs_background.png" type="Texture" id=6]
 [ext_resource path="res://Levels/Level3/House/House.gd" type="Script" id=7]
 [ext_resource path="res://Levels/Level3/House/BackDoor.gd" type="Script" id=8]
+[ext_resource path="res://Levels/Level3/House/rain_indoor01.wav" type="AudioStream" id=9]
+[ext_resource path="res://Levels/Level3/Rain.png" type="Texture" id=10]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0.88535, 0.980892, 1 )
@@ -392,21 +394,41 @@ extents = Vector2( 13.561, 28.0799 )
 [sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 17.163, 32.2881 )
 
+[sub_resource type="ParticlesMaterial" id=13]
+lifetime_randomness = 1.0
+emission_shape = 2
+emission_box_extents = Vector3( 350, 10, 1 )
+flag_disable_z = true
+gravity = Vector3( 1500, 1000, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 2.0
+scale_random = 0.23
+color = Color( 0.14902, 0.541176, 1, 1 )
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 7 )
+
+[node name="Rain" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -27.0
+autoplay = true
 
 [node name="Black" type="Sprite" parent="."]
 position = Vector2( 0, 110.915 )
 scale = Vector2( 1, 222.83 )
+z_index = -2
 texture = SubResource( 2 )
 
 [node name="Sky" type="TileMap" parent="."]
+z_index = -1
 tile_set = SubResource( 3 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 262150, 0, 0, 262151, 0, 0, 327686, 0, 0, 327687, 0, 0 )
 
 [node name="SkyObjects" type="TileMap" parent="."]
+z_index = -1
 tile_set = SubResource( 4 )
 cell_size = Vector2( 16, 16 )
 format = 1
@@ -472,6 +494,18 @@ script = ExtResource( 8 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BackDoor"]
 position = Vector2( 0, 95.1287 )
 shape = SubResource( 12 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 97.434, 63.3828 )
+rotation = -0.270526
+scale = Vector2( 0.05, 0.2 )
+z_index = -1
+amount = 50
+lifetime = 0.8
+speed_scale = 1.69
+randomness = 1.0
+process_material = SubResource( 13 )
+texture = ExtResource( 10 )
 
 [connection signal="body_entered" from="Door" to="Door" method="_on_Door_body_entered"]
 [connection signal="body_exited" from="Door" to="Door" method="_on_Door_body_exited"]

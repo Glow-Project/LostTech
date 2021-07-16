@@ -1,6 +1,7 @@
 extends Node2D
 
 var player_inside = false
+var bridge_destruction_played = false
 
 func _ready():
 	if SaveData.lvl3_was_in_house:
@@ -23,3 +24,14 @@ func _on_Area2D_body_entered(body):
 func _on_Area2D_body_exited(body):
 	if body.name == "Player":
 		player_inside = false
+
+
+func _on_PlayBridgeDestruction_body_entered(body):
+	if body.name == "Player" && !bridge_destruction_played:
+		$AnimationPlayer.play("Bridge destruction")
+		bridge_destruction_played = true
+		Global.is_paused = true
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == "Bridge destruction":
+		Global.is_paused = false
