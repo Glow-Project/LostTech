@@ -1,16 +1,17 @@
 extends Area2D
 
-var player_inside
+var player_inside = false
 
 func _process(_delta):
 	if (player_inside && Input.is_action_just_pressed("ui_accept")):
 		get_tree().change_scene("res://Levels/Level3/Level3.tscn")
-		SaveData.lvl3_was_in_house = true
+		SaveData.lvl3_out_to_barricade = true
 
-func _on_Door_body_entered(body):
+func _on_BackDoor_body_exited(body):
+	if (body.name == "Player"):
+		player_inside = false
+
+func _on_BackDoor_body_entered(body):
 	if (body.name == "Player"):
 		player_inside = true
 
-func _on_Door_body_exited(body):
-	if (body.name == "Player"):
-		player_inside = false
