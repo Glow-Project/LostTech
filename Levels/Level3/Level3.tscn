@@ -1246,6 +1246,7 @@ rotation = 1.39626
 z_index = 1
 frames = ExtResource( 24 )
 animation = "fly"
+frame = 1
 speed_scale = 0.59384
 playing = true
 __meta__ = {
@@ -1287,6 +1288,7 @@ visible = false
 position = Vector2( 970.679, -39.2381 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 21 )
+frame = 1
 playing = true
 
 [node name="E" type="AnimatedSprite" parent="END"]
@@ -1294,6 +1296,7 @@ visible = false
 position = Vector2( 907.405, -39.2871 )
 scale = Vector2( 0.75, 0.75 )
 frames = SubResource( 24 )
+frame = 1
 playing = true
 
 [node name="Camera2D" type="Camera2D" parent="END"]
@@ -1514,18 +1517,19 @@ stream = ExtResource( 30 )
 visible = false
 position = Vector2( 882.077, 1437.56 )
 frames = SubResource( 36 )
-frame = 1
 playing = true
 
 [node name="Puppy3" parent="." instance=ExtResource( 13 )]
 position = Vector2( 201.583, 94.7207 )
 scale = Vector2( 4, 4 )
 SPEED = 75.0
+big = true
 
 [node name="Puppy4" parent="." instance=ExtResource( 13 )]
 position = Vector2( 268.93, 93.5983 )
 scale = Vector2( 5, 5 )
 SPEED = 75.0
+big = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

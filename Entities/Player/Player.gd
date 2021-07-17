@@ -37,6 +37,20 @@ func _process(_delta):
 	SaveData.player["life"] = life
 	SaveData.player["energy"] = battery_level
 
+	var song = $Walkman.current_song
+	var song_name
+	if (is_instance_valid(song)):
+		song_name = song.name
+	else:
+		song_name = "null"
+	
+	if (Input.is_action_just_pressed("1") && (song_name == "Classic" || song_name == "null")):
+		play_or_stop("Classic")
+	elif (Input.is_action_just_pressed("2") && (song_name == "Raggea" || song_name == "null")):
+		play_or_stop("Raggea")	
+	elif (Input.is_action_just_pressed("3") && (song_name == "Techno" || song_name == "null")):
+		play_or_stop("Techno")
+
 func _physics_process(_delta):
 	if (Global.is_paused):
 		if (!$AttackDelayTimer.is_stopped()):
@@ -79,19 +93,6 @@ func move():
 		vel.x *= 2
 		action = "run"
 	
-	var song = $Walkman.current_song
-	var song_name
-	if (is_instance_valid(song)):
-		song_name = song.name
-	else:
-		song_name = "null"
-	
-	if (Input.is_action_just_pressed("1") && (song_name == "Classic" || song_name == "null")):
-		play_or_stop("Classic")
-	elif (Input.is_action_just_pressed("2") && (song_name == "Raggea" || song_name == "null")):
-		play_or_stop("Raggea")	
-	elif (Input.is_action_just_pressed("3") && (song_name == "Techno" || song_name == "null")):
-		play_or_stop("Techno")
 	
 	if (Input.is_action_just_pressed("ui_attack") && $AttackDelayTimer.is_stopped()):
 		attack()

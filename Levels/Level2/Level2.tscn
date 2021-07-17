@@ -1122,6 +1122,7 @@ position = Vector2( 108.789, 77.5693 )
 position = Vector2( 722.714, 111.452 )
 scale = Vector2( 4, 4 )
 SPEED = 0.0
+big = true
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -1143,7 +1144,6 @@ position = Vector2( 489.983, 133.618 )
 scale = Vector2( 0.822885, 0.882161 )
 frames = SubResource( 14 )
 animation = "idle"
-frame = 1
 playing = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
@@ -1215,16 +1215,19 @@ SPEED = 50.0
 position = Vector2( 2386.98, -207.124 )
 scale = Vector2( 4, 4 )
 SPEED = 50.0
+big = true
 
 [node name="Puppy8" parent="." instance=ExtResource( 18 )]
 position = Vector2( 2229.98, 110.876 )
 scale = Vector2( 4, 4 )
 SPEED = 50.0
+big = true
 
 [node name="Puppy9" parent="." instance=ExtResource( 18 )]
-position = Vector2( 1725.29, -304.217 )
+position = Vector2( 1725.29, -304.717 )
 scale = Vector2( 4, 4 )
 SPEED = 50.0
+big = true
 
 [node name="TechnoAnim" type="AnimationPlayer" parent="."]
 "anims/Techno End" = SubResource( 20 )
@@ -1300,7 +1303,6 @@ texture = ExtResource( 27 )
 visible = false
 position = Vector2( 1953.28, -304.559 )
 frames = SubResource( 27 )
-frame = 1
 playing = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TechnoAnim"]

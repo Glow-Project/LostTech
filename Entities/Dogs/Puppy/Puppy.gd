@@ -5,6 +5,7 @@ export var JUMP_HEIGHT: float = 1
 export var friendly: bool = false
 export var attack_delay: float = 2
 export var boss: bool = false
+export var big: bool = false
 
 var vel = Vector2.ZERO
 var dead = false
@@ -80,7 +81,7 @@ func move():
 				$AttackDelayTimer.start(attack_delay)
 				attack()
 				action = "attack"
-			elif (distance.y < 0):
+			elif (distance.y < 0 && !big):
 				get_node("../Player").bump()
 				die()
 	
