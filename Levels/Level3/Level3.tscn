@@ -1,6 +1,7 @@
-[gd_scene load_steps=62 format=2]
+[gd_scene load_steps=66 format=2]
 
 [ext_resource path="res://Entities/Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/Level3/ESC.png" type="Texture" id=2]
 [ext_resource path="res://Camera/Camera.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Design/Tilesets/Sky.tres" type="TileSet" id=4]
 [ext_resource path="res://Design/Tilesets/street.tres" type="TileSet" id=5]
@@ -685,6 +686,18 @@ tracks/16/keys = {
 "update": 1,
 "values": [ false, true ]
 }
+tracks/17/type = "value"
+tracks/17/path = NodePath("END/AnimatedSprite2:visible")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0.01, 40 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
 
 [sub_resource type="Animation" id=15]
 length = 30.0
@@ -758,6 +771,22 @@ region = Rect2( 64, 0, 32, 48 )
 [sub_resource type="SpriteFrames" id=31]
 animations = [ {
 "frames": [ SubResource( 28 ), SubResource( 29 ), SubResource( 30 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 2 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=35]
+animations = [ {
+"frames": [ SubResource( 33 ), SubResource( 34 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -865,7 +894,7 @@ position = Vector2( 864.34, 40.7937 )
 shape = SubResource( 5 )
 
 [node name="Puppy" parent="." instance=ExtResource( 13 )]
-position = Vector2( 641.713, 88.759 )
+position = Vector2( 739.967, 104.868 )
 scale = Vector2( -2, 2 )
 SPEED = 0.0
 
@@ -899,14 +928,13 @@ position = Vector2( 1194.51, 103.906 )
 "anims/Bridge destruction" = SubResource( 8 )
 
 [node name="Bridge" type="TileMap" parent="AnimationPlayer"]
-position = Vector2( 0, 89.992 )
 tile_set = SubResource( 9 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 327715, 1, 0, 327716, 1, 0, 327717, 1, 0, 327718, 1, 0, 393251, 0, 0, 393252, 0, 0, 393253, 0, 0, 393254, 0, 0 )
 
 [node name="Camera2D" type="Camera2D" parent="AnimationPlayer"]
-position = Vector2( 544, 80 )
+position = Vector2( 544.394, 80 )
 
 [node name="PlayBridgeDestruction" type="Area2D" parent="."]
 
@@ -933,7 +961,7 @@ stream = ExtResource( 25 )
 volume_db = -10.759
 
 [node name="FakePlayer" type="AnimatedSprite" parent="END"]
-position = Vector2( 1020.17, 1619.82 )
+position = Vector2( 1020.17, 1700 )
 rotation = 1.39626
 z_index = 1
 frames = ExtResource( 24 )
@@ -979,7 +1007,6 @@ visible = false
 position = Vector2( 970.679, -39.2381 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 19 )
-frame = 1
 playing = true
 
 [node name="E" type="AnimatedSprite" parent="END"]
@@ -987,11 +1014,10 @@ visible = false
 position = Vector2( 907.405, -39.2871 )
 scale = Vector2( 0.75, 0.75 )
 frames = SubResource( 22 )
-frame = 1
 playing = true
 
 [node name="Camera2D" type="Camera2D" parent="END"]
-position = Vector2( 1023.19, 1500.45 )
+position = Vector2( 1022.59, 1501.87 )
 z_index = 1
 
 [node name="Rain" type="Particles2D" parent="END/Camera2D"]
@@ -1195,11 +1221,18 @@ max_distance = 300.0
 position = Vector2( 1016.65, 1563.24 )
 scale = Vector2( 10.739, 1.97546 )
 frames = SubResource( 31 )
+frame = 1
 playing = true
 
 [node name="brokenGlass" type="AudioStreamPlayer2D" parent="END"]
 position = Vector2( 1013.35, 1724.18 )
 stream = ExtResource( 30 )
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="END"]
+position = Vector2( 882.077, 1437.56 )
+frames = SubResource( 35 )
+frame = 1
+playing = true
 
 [node name="Puppy3" parent="." instance=ExtResource( 13 )]
 position = Vector2( 265.563, 96.4044 )

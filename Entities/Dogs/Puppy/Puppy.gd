@@ -72,7 +72,7 @@ func move():
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
 
-		if (collision.collider.name == "Player" && !friendly):
+		if (collision.collider.name == "Player"):
 			if ((distance.y == 0 || distance.y > 0) && 
 				$AttackDelayTimer.is_stopped() &&
 				!friendly):
