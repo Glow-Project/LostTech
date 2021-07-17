@@ -22,6 +22,7 @@ func _on_Area2D_body_entered(body):
 	if (body.name == "Player" && !done):
 		done = true
 		Global.is_paused = true
+		$Player/Walkman.stop_song()
 		$AnimationPlayer.play("Fighting Intro")
 
 func _on_AnimationPlayer_animation_finished(anim_name):

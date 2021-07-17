@@ -999,8 +999,8 @@ scale_random = 0.38
 extents = Vector2( 12.9359, 25.4372 )
 
 [sub_resource type="Gradient" id=26]
-offsets = PoolRealArray( 0.88535, 0.980892, 1 )
-colors = PoolColorArray( 0, 0, 0, 1, 0.949045, 0.949045, 0.949045, 1, 1, 1, 1, 1 )
+offsets = PoolRealArray( 0, 0.00613497, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1 )
 
 [sub_resource type="GradientTexture" id=27]
 gradient = SubResource( 26 )
@@ -1121,7 +1121,6 @@ __meta__ = {
 visible = false
 position = Vector2( 80.9093, 118.424 )
 frames = SubResource( 22 )
-frame = 1
 playing = true
 
 [node name="Particles2D" type="Particles2D" parent="AnimationPlayer"]

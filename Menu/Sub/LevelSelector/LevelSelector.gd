@@ -17,7 +17,8 @@ func set_and_load(num):
 	LevelSwitch.set_current_level(num)
 	get_tree().change_scene("res://Levels/%s/%s.tscn" % [LevelSwitch.current_level, LevelSwitch.current_level])
 
-func _on_LevelSelector_draw():
+
+func _on_LevelSelector_visibility_changed():
 	if 1 in SaveData.achieved_levels:
 		$Level1.visible = true
 	else:
@@ -30,4 +31,3 @@ func _on_LevelSelector_draw():
 		$Level3.visible = true
 	else:
 		$Level3.visible = false
-

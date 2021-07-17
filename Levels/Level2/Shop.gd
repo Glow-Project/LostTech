@@ -5,15 +5,18 @@ export var typing_delay: float = 0.05
 var played = false
 var player_inside = false
 var show_info = false
+var no_cassette = false
 
 func _ready():
 	if "Raggea" in SaveData.collected_casettes:
 		$AnimationPlayer.queue_free()
 		$TriggerRaggeaIntro.queue_free()
 		$Label.queue_free()
+		no_cassette = true
 
 func _process(_delta):
 	if (Input.is_action_just_pressed("ui_accept") &&
+		!no_cassette &&
 		$AnimationPlayer.current_animation == "Raggea Proceed"):
 			$Player/Walkman/Raggea.stop()
 			$AnimationPlayer.play("End Raggea")
@@ -34,6 +37,7 @@ func _on_TriggerRaggeaIntro_body_entered(body):
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "Intro Raggea":
+		$Player/Walkman.stop_song()
 		$Player/Walkman/Raggea.play()
 		$AnimationPlayer.play("Raggea Proceed")
 	elif anim_name == "End Raggea":

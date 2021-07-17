@@ -825,7 +825,6 @@ tile_data = PoolIntArray( -262094, 7, 0, -262093, 6, 0, -196554, 26, 0, -196553,
 
 [node name="Camera" parent="." instance=ExtResource( 3 )]
 position = Vector2( 81.4692, 69.3948 )
-current = false
 
 [node name="Rain2" type="Particles2D" parent="."]
 position = Vector2( 232.729, -9.56441 )
@@ -841,8 +840,7 @@ texture = ExtResource( 12 )
 script = ExtResource( 14 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-visible = false
-position = Vector2( 941.08, -49.0869 )
+position = Vector2( 80.554, 92.0242 )
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2( 337.199, 92.0438 )
@@ -867,7 +865,7 @@ position = Vector2( 864.34, 40.7937 )
 shape = SubResource( 5 )
 
 [node name="Puppy" parent="." instance=ExtResource( 13 )]
-position = Vector2( 739.967, 104.868 )
+position = Vector2( 641.713, 88.759 )
 scale = Vector2( -2, 2 )
 SPEED = 0.0
 
@@ -901,13 +899,14 @@ position = Vector2( 1194.51, 103.906 )
 "anims/Bridge destruction" = SubResource( 8 )
 
 [node name="Bridge" type="TileMap" parent="AnimationPlayer"]
+position = Vector2( 0, 89.992 )
 tile_set = SubResource( 9 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 327715, 1, 0, 327716, 1, 0, 327717, 1, 0, 327718, 1, 0, 393251, 0, 0, 393252, 0, 0, 393253, 0, 0, 393254, 0, 0 )
 
 [node name="Camera2D" type="Camera2D" parent="AnimationPlayer"]
-position = Vector2( 544.394, 80 )
+position = Vector2( 544, 80 )
 
 [node name="PlayBridgeDestruction" type="Area2D" parent="."]
 
@@ -939,7 +938,6 @@ rotation = 1.39626
 z_index = 1
 frames = ExtResource( 24 )
 animation = "fly"
-frame = 2
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -995,7 +993,6 @@ playing = true
 [node name="Camera2D" type="Camera2D" parent="END"]
 position = Vector2( 1023.19, 1500.45 )
 z_index = 1
-current = true
 
 [node name="Rain" type="Particles2D" parent="END/Camera2D"]
 position = Vector2( 43.4121, -20.2552 )
@@ -1198,7 +1195,6 @@ max_distance = 300.0
 position = Vector2( 1016.65, 1563.24 )
 scale = Vector2( 10.739, 1.97546 )
 frames = SubResource( 31 )
-frame = 2
 playing = true
 
 [node name="brokenGlass" type="AudioStreamPlayer2D" parent="END"]

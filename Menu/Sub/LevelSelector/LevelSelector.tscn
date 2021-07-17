@@ -76,7 +76,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="draw" from="." to="." method="_on_LevelSelector_draw"]
+[connection signal="visibility_changed" from="." to="." method="_on_LevelSelector_visibility_changed"]
 [connection signal="pressed" from="Level1" to="." method="_on_Level1_pressed"]
 [connection signal="pressed" from="Level2" to="." method="_on_Level2_pressed"]
 [connection signal="pressed" from="Level3" to="." method="_on_Level3_pressed"]

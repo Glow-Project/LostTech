@@ -4,6 +4,7 @@
 [ext_resource path="res://HUD/HUD.tscn" type="PackedScene" id=2]
 
 [node name="Camera" type="Camera2D"]
+z_index = 1
 current = true
 script = ExtResource( 1 )
 

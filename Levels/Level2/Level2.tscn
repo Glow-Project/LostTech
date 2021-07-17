@@ -1114,11 +1114,10 @@ format = 1
 tile_data = PoolIntArray( -1310634, 536870933, 0, -1245109, 536870918, 0, -1179564, 44, 0, -1179563, 45, 0, 327686, 536870920, 0, 327688, 536870924, 0, 327731, 536870920, 0, 327732, 536870921, 0, 327737, 536870923, 0, 327739, 536870924, 0, 327829, 536870922, 0, 327830, 536870920, 0, 327831, 536870920, 0, 393258, 6, 0, 393280, 536870918, 0, 393287, 536870919, 0, 393295, 536870926, 0, 458774, 6, 0, 458806, 10, 0, 458831, 1073741838, 0, 458890, 4, 0, 458898, 536870916, 0, 589794, 4, 0, 589799, 536870916, 0, 589855, 8, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 84.8538, 110.846 )
+position = Vector2( 82.2373, 111.716 )
 
 [node name="Camera" parent="." instance=ExtResource( 3 )]
 position = Vector2( 108.789, 77.5693 )
-z_index = 1
 
 [node name="Puppy" parent="." instance=ExtResource( 10 )]
 position = Vector2( 722.714, 111.452 )
@@ -1145,7 +1144,6 @@ position = Vector2( 489.983, 133.618 )
 scale = Vector2( 0.822885, 0.882161 )
 frames = SubResource( 14 )
 animation = "idle"
-frame = 1
 playing = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
@@ -1213,7 +1211,7 @@ position = Vector2( 1393.45, 38.96 )
 SPEED = 50.0
 
 [node name="Puppy6" parent="." instance=ExtResource( 18 )]
-position = Vector2( 1685.85, -279.258 )
+position = Vector2( 1607.28, -276.877 )
 SPEED = 50.0
 
 [node name="Puppy7" parent="." instance=ExtResource( 18 )]
@@ -1236,6 +1234,23 @@ SPEED = 50.0
 "anims/Techno Introduction" = SubResource( 21 )
 "anims/Techno proceed" = SubResource( 22 )
 script = ExtResource( 23 )
+
+[node name="TechnoTut" type="Label" parent="TechnoAnim"]
+margin_left = 1924.32
+margin_top = -311.005
+margin_right = 2124.32
+margin_bottom = -297.005
+rect_scale = Vector2( 0.7, 0.7 )
+custom_fonts/font = SubResource( 23 )
+custom_colors/font_color = Color( 0, 0.337255, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Press 3 to toggle song"
+percent_visible = 0.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="TechnoAnim/TechnoTut"]
 
 [node name="Background" type="Sprite" parent="TechnoAnim"]
 visible = false
@@ -1288,25 +1303,7 @@ texture = ExtResource( 27 )
 visible = false
 position = Vector2( 1953.28, -304.559 )
 frames = SubResource( 27 )
-frame = 1
 playing = true
-
-[node name="TechnoTut" type="Label" parent="TechnoAnim"]
-margin_left = 1924.32
-margin_top = -311.005
-margin_right = 2124.32
-margin_bottom = -297.005
-rect_scale = Vector2( 0.7, 0.7 )
-custom_fonts/font = SubResource( 23 )
-custom_colors/font_color = Color( 0, 0.337255, 1, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "Press 3 to toggle song"
-percent_visible = 0.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Timer" type="Timer" parent="TechnoAnim/TechnoTut"]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TechnoAnim"]
 stream = ExtResource( 28 )
@@ -1322,6 +1319,12 @@ __meta__ = {
 position = Vector2( 24.2347, -130.064 )
 shape = SubResource( 20 )
 
+[node name="Battery3" parent="." instance=ExtResource( 15 )]
+position = Vector2( 158.625, 116.356 )
+
+[node name="Battery4" parent="." instance=ExtResource( 15 )]
+position = Vector2( 1631.34, 62.2873 )
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="SecretLevel" to="SecretLevel" method="_on_SecretLevel_body_entered"]
@@ -1330,6 +1333,6 @@ shape = SubResource( 20 )
 [connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_Area2D2_body_entered"]
 [connection signal="body_exited" from="Area2D2" to="Area2D2" method="_on_Area2D2_body_exited"]
 [connection signal="animation_finished" from="TechnoAnim" to="TechnoAnim" method="_on_TechnoAnim_animation_finished"]
-[connection signal="body_exited" from="TechnoAnim/Techno" to="TechnoAnim" method="_on_Techno_body_exited"]
 [connection signal="timeout" from="TechnoAnim/TechnoTut/Timer" to="TechnoAnim" method="_on_Timer_timeout"]
+[connection signal="body_exited" from="TechnoAnim/Techno" to="TechnoAnim" method="_on_Techno_body_exited"]
 [connection signal="body_entered" from="TechnoTrigger" to="TechnoAnim" method="_on_TechnoTrigger_body_entered"]

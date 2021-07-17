@@ -21,13 +21,14 @@ func _on_TechnoTrigger_body_entered(body):
 
 func _on_TechnoAnim_animation_finished(anim_name):
 	if anim_name == "Techno Introduction":
+		get_node("../Player/Walkman").stop_song()
 		get_node("../Player/Walkman/Techno").play()
 		play("Techno proceed")
 	elif anim_name == "Techno End":
 		Global.is_paused = false
 
 
-func _on_Techno_body_exited(body):
+func _on_Techno_body_exited(_body):
 	type = true
 
 func _on_Timer_timeout():

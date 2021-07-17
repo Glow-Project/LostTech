@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Items/Walkman/Walkman.gd" type="Script" id=1]
 [ext_resource path="res://Items/Walkman/classic_stuff.wav" type="AudioStream" id=2]
 [ext_resource path="res://Items/Walkman/raggea_loop01.wav" type="AudioStream" id=3]
 [ext_resource path="res://Items/Walkman/daclub.wav" type="AudioStream" id=4]
+[ext_resource path="res://Levels/Level1/TAPE START_17.wav" type="AudioStream" id=5]
+[ext_resource path="res://Levels/Level1/TAPE STOP_20.wav" type="AudioStream" id=6]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
@@ -14,8 +16,18 @@ volume_db = -10.0
 
 [node name="Techno" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
-volume_db = -10.721
+volume_db = -5.0
 
 [node name="Raggea" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 volume_db = -10.0
+
+[node name="Start" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -10.0
+
+[node name="End" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -10.0
+
+[connection signal="finished" from="Start" to="." method="_on_Start_finished"]

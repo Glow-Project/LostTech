@@ -7,5 +7,4 @@ func _on_Back_pressed():
 func _on_Reset_pressed():
 	SaveData.reset()
 	SaveData.load_data()
-	get_parent().get_node("LevelSelector")._on_LevelSelector_draw()
 	$Reset.visible = false

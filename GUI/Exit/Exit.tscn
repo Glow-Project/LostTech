@@ -35,6 +35,7 @@ position = Vector2( -0.173424, -20.9934 )
 frames = SubResource( 4 )
 animation = "idle"
 speed_scale = 0.5
+playing = true
 
 [connection signal="body_entered" from="." to="." method="_on_Exit_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Exit_body_exited"]

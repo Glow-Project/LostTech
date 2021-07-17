@@ -9,7 +9,7 @@ func _ready():
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if activated && Input.is_action_just_pressed("ui_accept"):
 		Global.is_paused = true
 		$AnimationPlayer.play("elevator_intro")

@@ -9,22 +9,20 @@ var required_energy = {
 }
 
 func _process(delta):
-	if (!paused && !current_song.playing):
-		current_song.play()
 	if (!paused):
 		get_parent().load_battery(-delta*required_energy[current_song.name])
 
 func play_song(name):
 	current_song = get_node(name)
-	current_song.play()
-	paused = false
-	proceed_effect(name, true)
+	$Start.play()
 
 func stop_song():
-	current_song.stop()
-	paused = true
-	proceed_effect(current_song.name, false)
-	current_song = null
+	if (current_song != null):
+		current_song.stop()
+		$End.play()
+		paused = true
+		proceed_effect(current_song.name, false)
+		current_song = null
 
 func proceed_effect(name, on):
 	if (on == true):
@@ -41,4 +39,8 @@ func proceed_effect(name, on):
 			Global.GRAVITY = 3
 		elif (name == "Techno"):
 			get_parent().SPEED = get_parent().SPEED / 2
-	
+
+func _on_Start_finished():
+	current_song.play()
+	proceed_effect(current_song.name, true)
+	paused = false
