@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Menu/Sub/MainMenu/MainMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Design/Background/mp_cs_background.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://pour_entertainment.png" type="Texture" id=5]
 [ext_resource path="res://Menu/Sub/LevelSelector/LevelSelector.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Menu/Sub/Options/Options.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Menu/Sub/Intro/Intro.tscn" type="PackedScene" id=8]
 
 [sub_resource type="TileSet" id=1]
 0/name = "mp_cs_background.png 0"
@@ -166,6 +167,7 @@ __meta__ = {
 }
 
 [node name="MainMenu" parent="." instance=ExtResource( 1 )]
+visible = false
 
 [node name="LevelSelector" parent="." instance=ExtResource( 6 )]
 visible = false
@@ -174,6 +176,7 @@ visible = false
 visible = false
 
 [node name="Background" type="Node2D" parent="."]
+visible = false
 z_index = -1
 
 [node name="Sky" type="TileMap" parent="Background"]
@@ -203,7 +206,8 @@ texture = ExtResource( 5 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Background"]
 stream = ExtResource( 4 )
 volume_db = -7.573
-autoplay = true
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="Background"]
 anims/idle = SubResource( 3 )
+
+[node name="Intro" parent="." instance=ExtResource( 8 )]

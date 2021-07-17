@@ -2,6 +2,8 @@ extends Control
 
 func _ready():
 	get_node("../HUD").queue_free()
+	SaveData.player["life"] = 5
+	SaveData.player["energy"] = 100
 	LevelSwitch.update_to_next_level()
 	SaveData.achieved_levels.append(LevelSwitch.current_level_number)
 	SaveData.save_data()

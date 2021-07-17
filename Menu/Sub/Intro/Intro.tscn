@@ -1,0 +1,206 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Menu/Sub/Intro/Intro.gd" type="Script" id=1]
+[ext_resource path="res://Menu/Sub/Intro/Lost-Tech.png" type="Texture" id=2]
+[ext_resource path="res://Menu/Sub/Intro/pour_entertainment_clean_sheet.png" type="Texture" id=3]
+[ext_resource path="res://Menu/Sub/Intro/Wildling_noBG_v1.png" type="Texture" id=4]
+[ext_resource path="res://Menu/Sub/Intro/Enter.wav" type="AudioStream" id=5]
+[ext_resource path="res://Font/Magero.ttf" type="DynamicFontData" id=6]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Intro"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("PourEntertainment:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.3, 1.5, 3.5, 4.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PourEntertainment:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 4.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("PourEntertainment:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2, 2.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 0 ]
+}
+tracks/3/type = "audio"
+tracks/3/path = NodePath("AudioStreamPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 5 )
+} ],
+"times": PoolRealArray( 2 )
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("GodotWildJam:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 5, 6, 8, 9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("GodotWildJam:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 5, 9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("LostTech:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 6, 9.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("LostTech:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 6, 6.5, 8.5, 9.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Label:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 5, 9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Label:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 5, 5.5, 8, 9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 80, 48 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 3 )
+region = Rect2( 80, 0, 80, 48 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 6 )
+
+[node name="Intro" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 321.0
+margin_bottom = 161.0
+color = Color( 0.0235294, 0.0235294, 0.0235294, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Intro = SubResource( 1 )
+
+[node name="PourEntertainment" type="AnimatedSprite" parent="."]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 160, 80 )
+frames = SubResource( 4 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="GodotWildJam" type="Sprite" parent="."]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 176, 56 )
+scale = Vector2( 0.05, 0.05 )
+texture = ExtResource( 4 )
+
+[node name="LostTech" type="Sprite" parent="."]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 160, 120 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 100.763
+margin_top = 41.0122
+margin_right = 155.763
+margin_bottom = 80.0122
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.980392, 0.380392, 0.286275, 1 )
+text = "Godot 
+  Wild
+    Jam"
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -671,7 +671,7 @@ tracks/0/keys = {
 [sub_resource type="RectangleShape2D" id=19]
 extents = Vector2( 13.8782, 26.2706 )
 
-[sub_resource type="Animation" id=28]
+[sub_resource type="Animation" id=20]
 resource_name = "Techno End"
 length = 0.7
 tracks/0/type = "value"
@@ -1021,7 +1021,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=20]
+[sub_resource type="RectangleShape2D" id=28]
 extents = Vector2( 19.8701, 277.599 )
 
 [node name="Node2D" type="Node2D"]
@@ -1085,7 +1085,6 @@ tile_data = PoolIntArray( -1376121, 4, 0, -1310640, 12, 0, -1179515, 4, 0, -1048
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Houses"]
 position = Vector2( 1008.61, 67.8056 )
 frames = SubResource( 6 )
-frame = 1
 speed_scale = 0.1
 playing = true
 
@@ -1144,6 +1143,7 @@ position = Vector2( 489.983, 133.618 )
 scale = Vector2( 0.822885, 0.882161 )
 frames = SubResource( 14 )
 animation = "idle"
+frame = 1
 playing = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
@@ -1151,9 +1151,6 @@ stream = ExtResource( 29 )
 
 [node name="Exit" parent="." instance=ExtResource( 14 )]
 position = Vector2( 2263.92, 101.446 )
-
-[node name="Battery" parent="." instance=ExtResource( 15 )]
-position = Vector2( 642.504, 117.023 )
 
 [node name="Battery2" parent="." instance=ExtResource( 15 )]
 position = Vector2( 1818.49, -318.293 )
@@ -1230,7 +1227,7 @@ scale = Vector2( 4, 4 )
 SPEED = 50.0
 
 [node name="TechnoAnim" type="AnimationPlayer" parent="."]
-"anims/Techno End" = SubResource( 28 )
+"anims/Techno End" = SubResource( 20 )
 "anims/Techno Introduction" = SubResource( 21 )
 "anims/Techno proceed" = SubResource( 22 )
 script = ExtResource( 23 )
@@ -1303,6 +1300,7 @@ texture = ExtResource( 27 )
 visible = false
 position = Vector2( 1953.28, -304.559 )
 frames = SubResource( 27 )
+frame = 1
 playing = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TechnoAnim"]
@@ -1317,10 +1315,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TechnoTrigger"]
 position = Vector2( 24.2347, -130.064 )
-shape = SubResource( 20 )
-
-[node name="Battery3" parent="." instance=ExtResource( 15 )]
-position = Vector2( 158.625, 116.356 )
+shape = SubResource( 28 )
 
 [node name="Battery4" parent="." instance=ExtResource( 15 )]
 position = Vector2( 1631.34, 62.2873 )

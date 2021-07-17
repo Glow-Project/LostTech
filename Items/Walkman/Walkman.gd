@@ -5,7 +5,7 @@ var current_song = null
 var required_energy = {
 	"Classic": 12,
 	"Techno": 10,
-	"Raggea": 23
+	"Raggea": 12
 }
 
 func _process(delta):

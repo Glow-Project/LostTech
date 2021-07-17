@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Entities/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Design/Foreground/mp_cs_doors_windows.png" type="Texture" id=2]
@@ -11,12 +11,13 @@
 [ext_resource path="res://Levels/Level3/House/rain_indoor01.wav" type="AudioStream" id=9]
 [ext_resource path="res://Levels/Level3/Rain.png" type="Texture" id=10]
 [ext_resource path="res://Items/Battery/Battery.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Entities/Dogs/Puppy/Puppy.tscn" type="PackedScene" id=12]
 
-[sub_resource type="Gradient" id=14]
+[sub_resource type="Gradient" id=1]
 colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 1 )
 
 [sub_resource type="GradientTexture" id=2]
-gradient = SubResource( 14 )
+gradient = SubResource( 1 )
 
 [sub_resource type="TileSet" id=3]
 0/name = "mp_cs_background.png 0"
@@ -509,6 +510,9 @@ texture = ExtResource( 10 )
 
 [node name="Battery" parent="." instance=ExtResource( 11 )]
 position = Vector2( 137.5, 106 )
+
+[node name="Puppy" parent="." instance=ExtResource( 12 )]
+position = Vector2( 149.604, 118.928 )
 
 [connection signal="body_entered" from="Door" to="Door" method="_on_Door_body_entered"]
 [connection signal="body_exited" from="Door" to="Door" method="_on_Door_body_exited"]

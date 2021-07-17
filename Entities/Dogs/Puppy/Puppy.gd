@@ -4,6 +4,7 @@ export var SPEED: float = 50
 export var JUMP_HEIGHT: float = 1
 export var friendly: bool = false
 export var attack_delay: float = 2
+export var boss: bool = false
 
 var vel = Vector2.ZERO
 var dead = false
@@ -109,10 +110,11 @@ func check_death():
 		queue_free()
 
 func die():
-	$CollisionShape2D.queue_free()
-	$AudioStreamPlayer2D.play()
-	$AnimatedSprite.play("hurt")
-	dead = true
+	if !boss:
+		$CollisionShape2D.queue_free()
+		$AudioStreamPlayer2D.play()
+		$AnimatedSprite.play("hurt")
+		dead = true
 
 
 func _on_BarkIntervalTimer_timeout():

@@ -6,3 +6,5 @@ func _on_Trampoline_body_entered(body):
 	if (body.name == "Player"):
 		get_node("../Player").bump(JUMP_HEIGHT)
 		$AnimatedSprite.play("bump")
+		if $Timer.is_stopped():
+			$AudioStreamPlayer2D.play()

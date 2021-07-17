@@ -53,6 +53,9 @@ func load_data():
 		if error == OK:
 			achieved_levels = file.get_var()
 			file.close()
+		
+		if !achieved_levels.empty():
+			LevelSwitch.set_current_level(achieved_levels.max())
 	
 	file = File.new()
 	if file.file_exists(file_path["casettes"]):

@@ -14,6 +14,7 @@ var on_floor: bool = true
 var player_paused = false
 
 func _ready():
+	Global.is_playing = true
 	sync_stats()
 	var simple_bat = battery_level
 	if (simple_bat != 0):
@@ -213,7 +214,7 @@ func cut():
 		play_or_stop($Walkman.current_song.name, true)
 
 func _on_Area2D_body_entered(body):
-	if (!(body is TileMap) && body.name != "Player"):
+	if (body.name.begins_with("Puppy")):
 		body.get_hit()
 
 func sync_stats():
