@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://Design/Tilesets/Sky.tres" type="TileSet" id=1]
 [ext_resource path="res://Design/Tilesets/Houses.tres" type="TileSet" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Items/Cassette/Classic/Cassette.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Design/Tilesets/street.tres" type="TileSet" id=7]
 [ext_resource path="res://Levels/Level1/ClubMusic.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Levels/Level1/CassetteTut.gd" type="Script" id=9]
 [ext_resource path="res://Entities/Dogs/Puppy/Puppy.tscn" type="PackedScene" id=10]
 [ext_resource path="res://GUI/Exit/Exit.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Design/Tilesets/Foreground.tres" type="TileSet" id=12]
@@ -33,6 +34,9 @@
 font_data = ExtResource( 19 )
 
 [sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 19 )
+
+[sub_resource type="DynamicFont" id=18]
 font_data = ExtResource( 19 )
 
 [sub_resource type="Animation" id=3]
@@ -858,6 +862,24 @@ __meta__ = {
 
 [node name="Timer" type="Timer" parent="BeginningMessage"]
 
+[node name="CassetteTut" type="Label" parent="."]
+margin_left = 1165.37
+margin_top = 8.66629
+margin_right = 1400.37
+margin_bottom = 22.6663
+rect_scale = Vector2( 0.7, 0.7 )
+custom_fonts/font = SubResource( 18 )
+custom_colors/font_color = Color( 0.898039, 0, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Press 1 to toggle the song"
+percent_visible = 0.0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="CassetteTut"]
+
 [node name="Player" parent="." instance=ExtResource( 3 )]
 visible = false
 position = Vector2( 130.111, 112.279 )
@@ -1001,7 +1023,7 @@ margin_right = 1362.28
 margin_bottom = 29.7509
 rect_scale = Vector2( 0.15, 0.15 )
 custom_fonts/font = SubResource( 13 )
-text = "The Classic Casette"
+text = "The Classic Cassette"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1065,8 +1087,10 @@ shape = SubResource( 17 )
 
 [connection signal="timeout" from="CasetteMessage/Timer" to="CasetteMessage" method="_on_Timer_timeout"]
 [connection signal="timeout" from="BeginningMessage/Timer" to="BeginningMessage" method="_on_Timer_timeout"]
+[connection signal="timeout" from="CassetteTut/Timer" to="CassetteTut" method="_on_Timer_timeout"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="DogIntroduction" to="." method="_on_Area2D_body_entered"]
+[connection signal="tree_exited" from="Classic" to="CassetteTut" method="_on_Classic_tree_exited"]
 [connection signal="body_entered" from="ClassicCasetteIntroduction" to="." method="_on_ClassicCasetteIntroduction_body_entered"]
 [connection signal="body_entered" from="Area2D" to="BeginningMessage" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="CasetteMessageTrigger" to="CasetteMessage" method="_on_CasetteMessageTrigger_body_entered"]

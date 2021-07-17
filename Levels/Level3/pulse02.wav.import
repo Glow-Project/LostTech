@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/pulse02.wav-252be182b044be05f6c5642d2344cefc.sample"
+
+[deps]
+
+source_file="res://Levels/Level3/pulse02.wav"
+dest_files=[ "res://.import/pulse02.wav-252be182b044be05f6c5642d2344cefc.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

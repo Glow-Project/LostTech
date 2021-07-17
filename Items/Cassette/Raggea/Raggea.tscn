@@ -43,7 +43,7 @@ shape = SubResource( 1 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 3 )
 playing = true
-offset = Vector2( 0, -2.20308 )
+offset = Vector2( 0, -1.8 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 3.0

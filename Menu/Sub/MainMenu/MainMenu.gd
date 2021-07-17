@@ -11,5 +11,11 @@ func _on_Exit_pressed():
 	get_tree().quit()
 	
 func _on_Select_Level_pressed():
+	switch_interface("LevelSelector")
+
+func _on_Options_pressed():
+	switch_interface("Options")
+	
+func switch_interface(scene_name):
 	visible = false
-	get_parent().get_node("LevelSelector").visible = true
+	get_parent().get_node(scene_name).visible = true

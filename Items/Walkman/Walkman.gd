@@ -5,7 +5,7 @@ var current_song = null
 var required_energy = {
 	"Classic": 12,
 	"Techno": 10,
-	"Raggea": 5
+	"Raggea": 23
 }
 
 func _process(delta):
@@ -24,16 +24,21 @@ func stop_song():
 	current_song.stop()
 	paused = true
 	proceed_effect(current_song.name, false)
+	current_song = null
 
 func proceed_effect(name, on):
 	if (on == true):
 		if (name == "Classic"):
 			Global.friendly = true
 		elif (name == "Raggea"):
-			Global.enemy_speed = 25
+			Global.GRAVITY = -0.5
+		elif (name == "Techno"):
+			get_parent().SPEED = get_parent().SPEED * 2
 	else:
 		if (name == "Classic"):
 			Global.friendly = false
 		elif (name == "Raggea"):
-			Global.enemy_speed = 50
+			Global.GRAVITY = 3
+		elif (name == "Techno"):
+			get_parent().SPEED = get_parent().SPEED / 2
 	

@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Menu/Sub/Options/Options.gd" type="Script" id=1]
+[ext_resource path="res://Font/Magero.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 2 )
+
+[node name="options" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Reset" type="MenuButton" parent="."]
+margin_left = 257.958
+margin_top = 139.491
+margin_right = 319.958
+margin_bottom = 159.491
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0.529412, 1, 1 )
+text = "Reset"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="MenuButton" parent="."]
+margin_left = -4.14881
+margin_top = 138.571
+margin_right = 57.8512
+margin_bottom = 158.571
+focus_mode = 2
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_hover = Color( 0, 0.529412, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.360784, 1, 0, 1 )
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Reset" to="." method="_on_Reset_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]

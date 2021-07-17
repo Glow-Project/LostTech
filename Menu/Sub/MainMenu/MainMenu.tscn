@@ -19,12 +19,14 @@ __meta__ = {
 
 [node name="Exit" type="MenuButton" parent="."]
 margin_left = -3.35273
-margin_top = 132.915
+margin_top = 137.683
 margin_right = 48.6473
-margin_bottom = 149.915
-rect_scale = Vector2( 1.5, 1.5 )
+margin_bottom = 154.683
+rect_scale = Vector2( 1.25, 1.25 )
 focus_mode = 2
 custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_hover = Color( 0, 0.529412, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.360784, 1, 0, 1 )
 text = "Exit"
 switch_on_hover = true
 __meta__ = {
@@ -32,13 +34,14 @@ __meta__ = {
 }
 
 [node name="Select Level" type="MenuButton" parent="."]
-margin_left = -3.36894
-margin_top = 107.049
-margin_right = 123.631
-margin_bottom = 124.049
-rect_scale = Vector2( 1.5, 1.5 )
+margin_left = -2.83921
+margin_top = 98.8382
+margin_right = 124.161
+margin_bottom = 115.838
+rect_scale = Vector2( 1.25, 1.25 )
 focus_mode = 2
 custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_hover = Color( 0, 0.529412, 1, 1 )
 text = "Select level"
 switch_on_hover = true
 __meta__ = {
@@ -47,13 +50,31 @@ __meta__ = {
 
 [node name="Start" type="MenuButton" parent="."]
 margin_left = -3.12009
-margin_top = 81.6919
+margin_top = 81.2715
 margin_right = 58.8799
-margin_bottom = 98.6919
-rect_scale = Vector2( 1.5, 1.5 )
+margin_bottom = 98.2715
+rect_scale = Vector2( 1.25, 1.25 )
 focus_mode = 2
 custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_hover = Color( 0, 0.529412, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.360784, 1, 0, 1 )
 text = "Start"
+switch_on_hover = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Options" type="MenuButton" parent="."]
+margin_left = -2.52549
+margin_top = 117.665
+margin_right = 59.4745
+margin_bottom = 134.665
+rect_scale = Vector2( 1.25, 1.25 )
+focus_mode = 2
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_hover = Color( 0, 0.529412, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.360784, 1, 0, 1 )
+text = "Options"
 switch_on_hover = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -66,6 +87,8 @@ margin_right = 162.235
 margin_bottom = 26.7383
 rect_scale = Vector2( 2, 2 )
 custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "The lost Walkman"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -74,3 +97,4 @@ __meta__ = {
 [connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]
 [connection signal="pressed" from="Select Level" to="." method="_on_Select_Level_pressed"]
 [connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="Options" to="." method="_on_Options_pressed"]

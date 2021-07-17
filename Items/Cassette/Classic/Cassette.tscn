@@ -17,6 +17,7 @@ animations = [ {
 
 [sub_resource type="Animation" id=3]
 resource_name = "idle"
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:offset")
 tracks/0/interp = 1
@@ -38,7 +39,6 @@ shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
-offset = Vector2( 0, -3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 3.0

@@ -1,5 +1,10 @@
 extends Control
 
+func _ready():
+	SaveData.player["life"] = 5
+	SaveData.player["energy"] = 100
+	SaveData.save_data()
+
 func _on_Menu_pressed():
 	get_tree().change_scene("res://Menu/Menu.tscn")
 

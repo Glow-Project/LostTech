@@ -5,6 +5,7 @@ func _ready():
 
 func _on_Cassette_body_entered(body):
 	if (body.name == "Player"):
-		SaveData.collected_casettes.append(name)
 		queue_free()
+		body.load_battery(100 - body.battery_level)
+		SaveData.collected_casettes.append(name)
 

@@ -3,9 +3,10 @@ extends KinematicBody2D
 export var life = 5
 export var battery_level = 100
 export var attack_delay: float = 0.5
+export var SPEED: float = 35
 
 var vel = Vector2.ZERO
-var SPEED = 35
+
 var JUMP_HEIGHT = 120
 var looks_right = true
 var just_jumped = false
@@ -13,6 +14,7 @@ var on_floor: bool = true
 var player_paused = false
 
 func _ready():
+	sync_stats()
 	var simple_bat = battery_level
 	if (simple_bat != 0):
 		simple_bat = battery_level * 4 / 100
@@ -20,6 +22,7 @@ func _ready():
 	
 	get_node("../Camera/HUD").change_life(str(life))
 	get_node("../Camera/HUD").change_battery(str(simple_bat))
+
 
 func _process(_delta):
 	if (Input.is_action_just_pressed("ui_pause") && !Global.level_finished):
@@ -29,6 +32,9 @@ func _process(_delta):
 		
 	if (battery_level <= 0 && !$Walkman.paused):
 		play_or_stop($Walkman.current_song.name, true)
+		
+	SaveData.player["life"] = life
+	SaveData.player["energy"] = battery_level
 
 func _physics_process(_delta):
 	if (Global.is_paused):
@@ -209,6 +215,13 @@ func cut():
 func _on_Area2D_body_entered(body):
 	if (!(body is TileMap) && body.name != "Player"):
 		body.get_hit()
+
+func sync_stats():
+	var saved_life = SaveData.player["life"]
+	var saved_battery = SaveData.player["energy"]
+	if (saved_life != null && saved_battery != null):
+		life = saved_life
+		battery_level = saved_battery
 
 func walk_sound():
 	if (!$WalkSound.playing && on_floor):

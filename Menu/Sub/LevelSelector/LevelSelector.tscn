@@ -27,6 +27,8 @@ margin_top = 74.6228
 margin_right = 77.2973
 margin_bottom = 94.6232
 custom_fonts/font = SubResource( 1 )
+custom_colors/font_color_hover = Color( 0, 0.529412, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.360784, 1, 0, 1 )
 text = "Level 1"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -39,6 +41,8 @@ margin_top = 92.4612
 margin_right = 77.2973
 margin_bottom = 112.461
 custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_hover = Color( 0, 0.529412, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.360784, 1, 0, 1 )
 text = "Level 2"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -52,22 +56,27 @@ margin_right = 77.2973
 margin_bottom = 129.407
 focus_mode = 2
 custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_hover = Color( 0, 0.529412, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.360784, 1, 0, 1 )
 text = "Level 3"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Back" type="MenuButton" parent="."]
-margin_left = 2.37842
-margin_top = 135.272
-margin_right = 54.3784
-margin_bottom = 155.272
+margin_left = 0.594614
+margin_top = 139.732
+margin_right = 52.5946
+margin_bottom = 159.732
 custom_fonts/font = SubResource( 3 )
+custom_colors/font_color_hover = Color( 0, 0.529412, 1, 1 )
+custom_colors/font_color_pressed = Color( 0.360784, 1, 0, 1 )
 text = "Back"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[connection signal="draw" from="." to="." method="_on_LevelSelector_draw"]
 [connection signal="pressed" from="Level1" to="." method="_on_Level1_pressed"]
 [connection signal="pressed" from="Level2" to="." method="_on_Level2_pressed"]
 [connection signal="pressed" from="Level3" to="." method="_on_Level3_pressed"]
