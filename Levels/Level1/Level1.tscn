@@ -855,7 +855,7 @@ margin_bottom = 74.579
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 0.764706, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "Maybey you can find 
+text = "Maybe you can find 
      some cassettes 
 	     around here"
 percent_visible = 0.0
@@ -937,6 +937,7 @@ visible = false
 position = Vector2( 1218.86, 25.0213 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 12 )
+frame = 1
 playing = true
 
 [node name="Camera2D" type="Camera2D" parent="AnimationPlayer"]
