@@ -121,6 +121,7 @@ shape = SubResource( 3 )
 one_shot = true
 
 [node name="Walkman" parent="." instance=ExtResource( 4 )]
+visible = false
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )

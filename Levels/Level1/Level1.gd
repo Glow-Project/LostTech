@@ -10,6 +10,9 @@ func _ready():
 		$Classic.queue_free()
 		$ClassicCasetteIntroduction.queue_free()
 		$CassetteTut.queue_free()
+	if !SaveData.collected_casettes.empty():
+		$WalkmanItem.queue_free()
+		$Area2D.queue_free()
 
 func _process(_delta):
 	if ($AnimationPlayer.is_playing() && 

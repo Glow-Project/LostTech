@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://Design/Tilesets/Sky.tres" type="TileSet" id=1]
 [ext_resource path="res://Design/Tilesets/Houses.tres" type="TileSet" id=2]
@@ -29,6 +29,7 @@
 [ext_resource path="res://Levels/Level1/tone.png" type="Texture" id=27]
 [ext_resource path="res://Levels/Level1/BeginningMessage.gd" type="Script" id=28]
 [ext_resource path="res://Levels/Level1/CasetteMessage.gd" type="Script" id=29]
+[ext_resource path="res://Items/WalkmanItem/WalkmanItem.tscn" type="PackedScene" id=30]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 19 )
@@ -852,11 +853,11 @@ margin_top = 35.579
 margin_right = 418.797
 margin_bottom = 74.579
 custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0, 0.345098, 1, 1 )
-custom_colors/font_color_shadow = Color( 0, 0.2, 0.980392, 1 )
-text = "I'm sure out here 
-     is nothing 
-     dangerous"
+custom_colors/font_color = Color( 1, 0.764706, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Maybey you can find 
+     some cassettes 
+	     around here"
 percent_visible = 0.0
 script = ExtResource( 28 )
 __meta__ = {
@@ -936,6 +937,7 @@ visible = false
 position = Vector2( 1218.86, 25.0213 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 12 )
+frame = 1
 playing = true
 
 [node name="Camera2D" type="Camera2D" parent="AnimationPlayer"]
@@ -1071,7 +1073,7 @@ __meta__ = {
 shape = SubResource( 16 )
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2( 227.179, 17.3725 )
+position = Vector2( 251.248, 18.3164 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -1101,6 +1103,9 @@ an easter egg "
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="WalkmanItem" parent="." instance=ExtResource( 30 )]
+position = Vector2( 228.058, 30.7378 )
 
 [connection signal="timeout" from="CasetteMessage/Timer" to="CasetteMessage" method="_on_Timer_timeout"]
 [connection signal="timeout" from="BeginningMessage/Timer" to="BeginningMessage" method="_on_Timer_timeout"]
