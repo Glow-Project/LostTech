@@ -13,6 +13,9 @@ func _process(delta):
 		get_parent().load_battery(-delta*required_energy[current_song.name])
 
 func play_song(name):
+	var music = get_parent().get_parent().get_node("BackgroundMusic")
+	if is_instance_valid(music):
+		music.stop()
 	
 	current_song = get_node(name)
 	$Start.play()
@@ -20,6 +23,9 @@ func play_song(name):
 func stop_song():
 	if (current_song != null):
 		current_song.stop()
+		var music = get_parent().get_parent().get_node("BackgroundMusic")
+		if is_instance_valid(music):
+			music.play()
 		$End.play()
 		paused = true
 		proceed_effect(current_song.name, false)

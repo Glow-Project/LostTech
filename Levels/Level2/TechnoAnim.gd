@@ -26,7 +26,7 @@ func _on_TechnoAnim_animation_finished(anim_name):
 		get_node("../Player/Walkman/Techno").play()
 		play("Techno proceed")
 	elif anim_name == "Techno End":
-		get_parent().get_node("BackgroundMusic").start()
+		get_parent().get_node("BackgroundMusic").play()
 		Global.is_paused = false
 
 

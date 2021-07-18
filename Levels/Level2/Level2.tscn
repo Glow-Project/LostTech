@@ -1146,7 +1146,6 @@ position = Vector2( 489.983, 133.618 )
 scale = Vector2( 0.822885, 0.882161 )
 frames = SubResource( 14 )
 animation = "idle"
-frame = 1
 playing = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="AnimationPlayer"]
@@ -1306,7 +1305,6 @@ texture = ExtResource( 27 )
 visible = false
 position = Vector2( 1953.28, -304.559 )
 frames = SubResource( 27 )
-frame = 1
 playing = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TechnoAnim"]

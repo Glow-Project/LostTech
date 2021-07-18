@@ -1247,6 +1247,7 @@ rotation = 1.39626
 z_index = 1
 frames = ExtResource( 24 )
 animation = "fly"
+frame = 1
 speed_scale = 0.59384
 playing = true
 __meta__ = {
@@ -1504,6 +1505,7 @@ max_distance = 300.0
 position = Vector2( 1016.65, 1563.24 )
 scale = Vector2( 10.739, 1.97546 )
 frames = SubResource( 33 )
+frame = 2
 playing = true
 
 [node name="brokenGlass" type="AudioStreamPlayer2D" parent="END"]
