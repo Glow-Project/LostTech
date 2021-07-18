@@ -13,6 +13,7 @@ func _process(delta):
 		get_parent().load_battery(-delta*required_energy[current_song.name])
 
 func play_song(name):
+	
 	current_song = get_node(name)
 	$Start.play()
 

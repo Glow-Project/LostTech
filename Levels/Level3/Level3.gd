@@ -10,6 +10,7 @@ func _ready():
 	elif SaveData.lvl3_out_to_barricade:
 		$Player.position = $HouseBarricadeDoor.position
 		SaveData.lvl3_out_to_barricade = false
+	$BackgroundMusic.play(SaveData.lvl3_music_loc)
 
 func _process(_delta):
 	if Input.is_action_just_pressed("ui_accept") && player_inside:
@@ -33,3 +34,7 @@ func _on_PlayBridgeDestruction_body_entered(body):
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "Bridge destruction":
 		Global.is_paused = false
+
+
+func _on_Node2D_tree_exited():
+	SaveData.lvl3_music_loc = $BackgroundMusic.get_playback_position()

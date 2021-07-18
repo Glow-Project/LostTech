@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=2]
+[gd_scene load_steps=68 format=2]
 
 [ext_resource path="res://Entities/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/Level3/ESC.png" type="Texture" id=2]
@@ -30,6 +30,7 @@
 [ext_resource path="res://Levels/Level3/PartyFilterBig.png" type="Texture" id=28]
 [ext_resource path="res://Levels/Level1/JumpnRun_KickedOutClubEdit.mp3" type="AudioStream" id=29]
 [ext_resource path="res://Levels/Level3/broken_glass01.wav" type="AudioStream" id=30]
+[ext_resource path="res://Levels/Level3/Mitternachtskrach.wav" type="AudioStream" id=31]
 
 [sub_resource type="TileSet" id=1]
 0/name = "tilemap_all.png 0"
@@ -1246,7 +1247,6 @@ rotation = 1.39626
 z_index = 1
 frames = ExtResource( 24 )
 animation = "fly"
-frame = 1
 speed_scale = 0.59384
 playing = true
 __meta__ = {
@@ -1288,7 +1288,6 @@ visible = false
 position = Vector2( 970.679, -39.2381 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 21 )
-frame = 1
 playing = true
 
 [node name="E" type="AnimatedSprite" parent="END"]
@@ -1296,7 +1295,6 @@ visible = false
 position = Vector2( 907.405, -39.2871 )
 scale = Vector2( 0.75, 0.75 )
 frames = SubResource( 24 )
-frame = 1
 playing = true
 
 [node name="Camera2D" type="Camera2D" parent="END"]
@@ -1506,7 +1504,6 @@ max_distance = 300.0
 position = Vector2( 1016.65, 1563.24 )
 scale = Vector2( 10.739, 1.97546 )
 frames = SubResource( 33 )
-frame = 1
 playing = true
 
 [node name="brokenGlass" type="AudioStreamPlayer2D" parent="END"]
@@ -1517,6 +1514,7 @@ stream = ExtResource( 30 )
 visible = false
 position = Vector2( 882.077, 1437.56 )
 frames = SubResource( 36 )
+frame = 1
 playing = true
 
 [node name="Puppy3" parent="." instance=ExtResource( 13 )]
@@ -1531,6 +1529,12 @@ scale = Vector2( 5, 5 )
 SPEED = 75.0
 big = true
 
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 31 )
+volume_db = -15.0
+autoplay = true
+
+[connection signal="tree_exited" from="." to="." method="_on_Node2D_tree_exited"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
 [connection signal="body_entered" from="BackDoor" to="BackDoor" method="_on_BackDoor_body_entered"]

@@ -20,6 +20,7 @@ func _process(_delta):
 			$DecisionMusic.stop()
 			get_parent().get_node("Player").position.x = get_parent().get_node("Player").position.x - 50
 			play("Destroy")
+			get_parent().get_node("BackgroundMusic").play(SaveData.lvl3_music_loc)
 		elif Input.is_action_just_pressed("ui_up"):
 			$DecisionMusic.stop()
 			$CreditMusic.play()
@@ -32,6 +33,8 @@ func _process(_delta):
 func _on_DescisionTrigger_body_entered(body):
 	if body.name == "Player":
 		Global.is_paused = true
+		SaveData.lvl3_music_loc = get_parent().get_node("BackgroundMusic").get_playback_position()
+		get_parent().get_node("BackgroundMusic").stop()
 		$DecisionMusic.play()
 		play("Decision Start")
 

@@ -15,6 +15,7 @@ func _process(_delta):
 func _on_TechnoTrigger_body_entered(body):
 	if body.name == "Player" && !played:
 		Global.is_paused = true
+		get_parent().get_node("BackgroundMusic").stop()
 		play("Techno Introduction")
 		played = true
 
@@ -25,6 +26,7 @@ func _on_TechnoAnim_animation_finished(anim_name):
 		get_node("../Player/Walkman/Techno").play()
 		play("Techno proceed")
 	elif anim_name == "Techno End":
+		get_parent().get_node("BackgroundMusic").start()
 		Global.is_paused = false
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Entities/Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Design/Foreground/mp_cs_doors_windows.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Levels/Level3/Rain.png" type="Texture" id=10]
 [ext_resource path="res://Items/Battery/Battery.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Entities/Dogs/Puppy/Puppy.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Levels/Level3/Mitternachtskrach.wav" type="AudioStream" id=13]
 
 [sub_resource type="Gradient" id=1]
 colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 1 )
@@ -416,7 +417,7 @@ volume_db = -27.0
 autoplay = true
 
 [node name="Black" type="Sprite" parent="."]
-position = Vector2( 0, 121.875 )
+position = Vector2( 11.7984, 206.352 )
 scale = Vector2( 1, 366.373 )
 z_index = -2
 texture = SubResource( 2 )
@@ -514,6 +515,12 @@ position = Vector2( 137.5, 106 )
 [node name="Puppy" parent="." instance=ExtResource( 12 )]
 position = Vector2( 149.604, 118.928 )
 
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+volume_db = -15.0
+autoplay = true
+
+[connection signal="tree_exited" from="." to="." method="_on_Node2D_tree_exited"]
 [connection signal="body_entered" from="Door" to="Door" method="_on_Door_body_entered"]
 [connection signal="body_exited" from="Door" to="Door" method="_on_Door_body_exited"]
 [connection signal="body_entered" from="BackDoor" to="BackDoor" method="_on_BackDoor_body_entered"]

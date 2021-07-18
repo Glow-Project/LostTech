@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/sky_lullaby.mp3-d686688909701fb85bdf7ad81dccf8a0.mp3str"
+
+[deps]
+
+source_file="res://Levels/Level2/sky_lullaby.mp3"
+dest_files=[ "res://.import/sky_lullaby.mp3-d686688909701fb85bdf7ad81dccf8a0.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
